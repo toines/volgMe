@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF66485821596390003B58A0 /* LocationManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF66485721596390003B58A0 /* LocationManagerExtensions.swift */; };
 		CFE466C82158F9A600179A69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE466C72158F9A600179A69 /* AppDelegate.swift */; };
-		CFE466CA2158F9A600179A69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE466C92158F9A600179A69 /* ViewController.swift */; };
 		CFE466CD2158F9A600179A69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE466CB2158F9A600179A69 /* Main.storyboard */; };
 		CFE466D02158F9A600179A69 /* volgMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFE466CE2158F9A600179A69 /* volgMe.xcdatamodeld */; };
 		CFE466D22158F9A800179A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFE466D12158F9A800179A69 /* Assets.xcassets */; };
 		CFE466D52158F9A800179A69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE466D32158F9A800179A69 /* LaunchScreen.storyboard */; };
+		CFE466DE2158FA6400179A69 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE466DD2158FA6400179A69 /* MapKit.framework */; };
+		CFE466E02158FC2000179A69 /* LogBoekVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE466DF2158FC2000179A69 /* LogBoekVC.swift */; };
+		CFE467052158FD1900179A69 /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE467042158FD1900179A69 /* TableViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF66485721596390003B58A0 /* LocationManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerExtensions.swift; sourceTree = "<group>"; };
 		CFE466C42158F9A600179A69 /* volgMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = volgMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE466C72158F9A600179A69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CFE466C92158F9A600179A69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CFE466CC2158F9A600179A69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CFE466CF2158F9A600179A69 /* volgMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = volgMe.xcdatamodel; sourceTree = "<group>"; };
 		CFE466D12158F9A800179A69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFE466D42158F9A800179A69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFE466D62158F9A800179A69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFE466DD2158FA6400179A69 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CFE466DF2158FC2000179A69 /* LogBoekVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogBoekVC.swift; sourceTree = "<group>"; };
+		CFE467042158FD1900179A69 /* TableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFE466DE2158FA6400179A69 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,7 @@
 			children = (
 				CFE466C62158F9A600179A69 /* volgMe */,
 				CFE466C52158F9A600179A69 /* Products */,
+				CFE466DC2158FA6400179A69 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,7 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				CFE466C72158F9A600179A69 /* AppDelegate.swift */,
-				CFE466C92158F9A600179A69 /* ViewController.swift */,
+				CFE466DF2158FC2000179A69 /* LogBoekVC.swift */,
+				CFE467042158FD1900179A69 /* TableViewExtensions.swift */,
+				CF66485721596390003B58A0 /* LocationManagerExtensions.swift */,
 				CFE466CB2158F9A600179A69 /* Main.storyboard */,
 				CFE466D12158F9A800179A69 /* Assets.xcassets */,
 				CFE466D32158F9A800179A69 /* LaunchScreen.storyboard */,
@@ -65,6 +75,14 @@
 				CFE466CE2158F9A600179A69 /* volgMe.xcdatamodeld */,
 			);
 			path = volgMe;
+			sourceTree = "<group>";
+		};
+		CFE466DC2158FA6400179A69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFE466DD2158FA6400179A69 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +117,14 @@
 				TargetAttributes = {
 					CFE466C32158F9A600179A69 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -138,9 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFE466CA2158F9A600179A69 /* ViewController.swift in Sources */,
 				CFE466C82158F9A600179A69 /* AppDelegate.swift in Sources */,
+				CF66485821596390003B58A0 /* LocationManagerExtensions.swift in Sources */,
+				CFE466E02158FC2000179A69 /* LogBoekVC.swift in Sources */,
 				CFE466D02158F9A600179A69 /* volgMe.xcdatamodeld in Sources */,
+				CFE467052158FD1900179A69 /* TableViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
