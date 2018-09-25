@@ -20,7 +20,6 @@ extension Adres : MKAnnotation
     public var coordinate:CLLocationCoordinate2D{get {return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)}
         set {self.latitude = newValue.latitude ; self.longitude = newValue.longitude}
     }
-
     public var subtitle: String? {return stad}
     public var title: String? {return naam}
 }
