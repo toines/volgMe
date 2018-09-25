@@ -12,6 +12,8 @@ class LogBoekVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initLocationManager()
+        StoreAllContactsAdresses()
 
         // Do any additional setup after loading the view.
     }

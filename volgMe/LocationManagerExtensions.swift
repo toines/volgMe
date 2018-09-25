@@ -24,4 +24,10 @@ extension LogBoekVC : CLLocationManagerDelegate{
             
         }
     }
+    func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
+
+    }
+    func  locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    
+    }
 }

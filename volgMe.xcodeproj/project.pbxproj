@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */; };
+		CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */; };
 		CF66485821596390003B58A0 /* LocationManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF66485721596390003B58A0 /* LocationManagerExtensions.swift */; };
+		CF66485A215967F6003B58A0 /* ContactsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF664859215967F6003B58A0 /* ContactsExtension.swift */; };
+		CF66485C21596C13003B58A0 /* dateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF66485B21596C13003B58A0 /* dateExtensions.swift */; };
 		CFE466C82158F9A600179A69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE466C72158F9A600179A69 /* AppDelegate.swift */; };
 		CFE466CD2158F9A600179A69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE466CB2158F9A600179A69 /* Main.storyboard */; };
 		CFE466D02158F9A600179A69 /* volgMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFE466CE2158F9A600179A69 /* volgMe.xcdatamodeld */; };
@@ -19,7 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
+		CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
 		CF66485721596390003B58A0 /* LocationManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerExtensions.swift; sourceTree = "<group>"; };
+		CF664859215967F6003B58A0 /* ContactsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsExtension.swift; sourceTree = "<group>"; };
+		CF66485B21596C13003B58A0 /* dateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateExtensions.swift; sourceTree = "<group>"; };
 		CFE466C42158F9A600179A69 /* volgMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = volgMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE466C72158F9A600179A69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFE466CC2158F9A600179A69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +76,10 @@
 				CFE466DF2158FC2000179A69 /* LogBoekVC.swift */,
 				CFE467042158FD1900179A69 /* TableViewExtensions.swift */,
 				CF66485721596390003B58A0 /* LocationManagerExtensions.swift */,
+				CF664859215967F6003B58A0 /* ContactsExtension.swift */,
+				CF66485B21596C13003B58A0 /* dateExtensions.swift */,
+				CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */,
+				CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */,
 				CFE466CB2158F9A600179A69 /* Main.storyboard */,
 				CFE466D12158F9A800179A69 /* Assets.xcassets */,
 				CFE466D32158F9A800179A69 /* LaunchScreen.storyboard */,
@@ -164,10 +176,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF66485A215967F6003B58A0 /* ContactsExtension.swift in Sources */,
+				CF66485C21596C13003B58A0 /* dateExtensions.swift in Sources */,
+				CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */,
 				CFE466C82158F9A600179A69 /* AppDelegate.swift in Sources */,
 				CF66485821596390003B58A0 /* LocationManagerExtensions.swift in Sources */,
 				CFE466E02158FC2000179A69 /* LogBoekVC.swift in Sources */,
 				CFE466D02158F9A600179A69 /* volgMe.xcdatamodeld in Sources */,
+				CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */,
 				CFE467052158FD1900179A69 /* TableViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
