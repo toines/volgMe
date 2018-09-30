@@ -25,13 +25,13 @@ func StoreAllContactsAdresses() // ->[String]
         contacts.append(contact)
         for adres in contact.postalAddresses {
             print("\(contact.givenName) \(contact.familyName) \(adres.value.street) \(adres.value.postalCode) \(adres.value.state) \(adres.value.city) \(adres.value.isoCountryCode)")
-//            let adrInfo = Adres(context: context)
-//            adrInfo.naam = "\(contact.givenName) \(contact.familyName)"
-//            adrInfo.landcode = adres.value.isoCountryCode
-//            adrInfo.stad = adres.value.city
-//            adrInfo.straatHuisnummer = adres.value.street
-//            adrInfo.postcode = adres.value.postalCode
-//            delegate.saveContext()
+            let adrInfo = Adres(context: context)
+            adrInfo.naam = "\(contact.givenName) \(contact.familyName)"
+            adrInfo.landcode = adres.value.isoCountryCode
+            adrInfo.stad = adres.value.city
+            adrInfo.straatHuisnummer = adres.value.street
+            adrInfo.postcode = adres.value.postalCode
+            delegate.saveContext()
         }
         }
         //       print(contacts)

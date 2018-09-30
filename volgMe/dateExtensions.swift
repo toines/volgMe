@@ -237,5 +237,32 @@ extension String{
     
     
 }
-
+func datums(van:Date,totEnMet:Date)->[Date]{
+    let Formatter = DateFormatter()
+    Formatter.dateFormat = "yyMMdd"
+    var z = Formatter.date(from: Formatter.string(from:van))!
+    var datumTabel = [Date]()
+    while z < totEnMet {
+        datumTabel.append(z)
+        z = z.addingTimeInterval(24*60*60)
+    }
+    return datumTabel
+}
+func datums(van:Date_70,totEnMet:Date_70)->[Date_70]{
+    let Formatter = DateFormatter()
+    Formatter.dateFormat = "yyMMdd"
+    var z = Formatter.date(from: Formatter.string(from:van.date))!
+    var datumTabel = [Date_70]()
+    while z < totEnMet.date {
+        datumTabel.append(Date_70(z.timeIntervalSince1970))
+        z = z.addingTimeInterval(24*60*60)
+    }
+    return datumTabel
+}
+func aantalDatums(van:Date_70,totEnMet:Date_70)->Int{
+    let Formatter = DateFormatter()
+    Formatter.dateFormat = "yyMMdd"
+    let z = Formatter.date(from: Formatter.string(from:van.date))!.timeIntervalSince(totEnMet.date)
+    return Int(z / (24*60*60))
+}
 

@@ -13,8 +13,13 @@ class LogBoekVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initLocationManager()
-//        StoreAllContactsAdresses()
-        readJson()
+        if geenAdressen(){
+         StoreAllContactsAdresses()
+         readJson()
+        }
+        if zoekAdressenZonderLocatieKlaar() {if bezoekenZonderAdresKlaar(){}}
+        ErrMsg ("#adressen:\(telAdressen()) #bezoeken:\(telBezoeken())",.debug)
+        checkForBackgroundForeground()
 
         // Do any additional setup after loading the view.
     }

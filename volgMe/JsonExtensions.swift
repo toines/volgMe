@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 
 //===============================================================================================================================
@@ -19,22 +20,12 @@ func clean(_ visites:[myCLVisit])->[myCLVisit]{
     for visit in visites {
         var goeiePrevVisit = false
         if (prevVisit.arrival_1970 == visit.arrival_1970) && (prevVisit.departure_1970 == visit.departure_1970) && (abs(prevVisit.latitude - visit.latitude) < 0.01) && (abs(prevVisit.longitude - visit.longitude) < 0.01){}
-        else {
-            goeiePrevVisit = true
-        }
-        
-        
-        
+        else {goeiePrevVisit = true}
         if (abs(prevVisit.latitude - visit.latitude) < 0.01) && (abs(prevVisit.longitude - visit.longitude) < 0.01) && prevVisit.departure_1970.date.HHmm == "00:00" && visit.arrival_1970.date.HHmm == "00:00" && goeiePrevVisit {
             visit.arrival_1970 = prevVisit.arrival_1970
-            goeiePrevVisit = !goeiePrevVisit
-        }
-        
+            goeiePrevVisit = !goeiePrevVisit}
         if goeiePrevVisit && prevVisit.departure_1970.date.HHmm == "00:00" {
-            goeiePrevVisit = !goeiePrevVisit
-        }
-        
-        
+            goeiePrevVisit = !goeiePrevVisit}
         if goeiePrevVisit {cleanedTable.append(prevVisit)}
         prevVisit = visit
     }
@@ -44,13 +35,6 @@ func clean(_ visites:[myCLVisit])->[myCLVisit]{
 }
 
 
-class myCLVisit:Codable {  // tijdelijk
-    let info : String?
-    var  latitude : Double
-    var longitude : Double
-    var departure_1970 : Date_70
-    var arrival_1970 : Date_70
-}
 
 func readJson() {
 
@@ -65,9 +49,7 @@ func readJson() {
         print (bezoeken.count)
         print (bezoeken[0].arrival_1970.date.HHmm)
         
-    } else {
-        print("no data")
-    }
+    } else {print("no data")}
     bezoeken = bezoeken.sorted(by:{($0.arrival_1970,$0.departure_1970) < ($1.arrival_1970,$1.departure_1970)})
     bezoeken = clean(bezoeken)
     for bezoek in bezoeken {
@@ -77,9 +59,34 @@ func readJson() {
         if bezoek.departure_1970.date.HHmm == "00:00" {skipVanwegeDatumDeparture = "D>>>>>> "}
         var skipVanwegeDatumArrival = ""
         if bezoek.arrival_1970.date.HHmm == "00:00" {skipVanwegeDatumArrival = "A>> "}
-        print (skipVanwegeDatumDeparture + skipVanwegeDatumArrival + "\(bezoek.arrival_1970.date.dd_MM_yyyy_HH_mm)   \(bezoek.departure_1970.date.dd_MM_yyyy_HH_mm)....\(long) - \(lat)  ")
-    }
+        var dagen = ""
+        for dag in (datums(van: bezoek.arrival_1970, totEnMet: bezoek.departure_1970)){
+            dagen = dagen + "\(dag.date.yyyyMMdd)."
+        }
+        print (skipVanwegeDatumDeparture + skipVanwegeDatumArrival + "\(bezoek.arrival_1970.date.dd_MM_yyyy_HH_mm)   \(bezoek.departure_1970.date.dd_MM_yyyy_HH_mm)....\(long) - \(lat)     \(dagen)")
+        let _ = Bezoek(bezoek)
+        
+        }
     }   catch {print ("Error",error)}
+}
+
+class myCLVisit:Codable {  // tijdelijk
+    let info : String?
+    var  latitude : Double
+    var longitude : Double
+    var departure_1970 : Date_70
+    var arrival_1970 : Date_70
+    public var coordinate:CLLocationCoordinate2D{
+        get {return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)}
+        set {latitude = newValue.latitude; longitude = newValue.longitude}}
+    init(_ visit:CLVisit) {
+        
+        info = ""
+        latitude = visit.coordinate.latitude
+        longitude = visit.coordinate.longitude
+        departure_1970 = Date_70(visit.departureDate)
+        arrival_1970 = Date_70(visit.arrivalDate)
+    }
 }
 
 

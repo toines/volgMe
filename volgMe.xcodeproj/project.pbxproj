@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */; };
 		CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */; };
+		CF594DD62160ECD700D04356 /* algemeneFuncties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF594DD52160ECD700D04356 /* algemeneFuncties.swift */; };
 		CF5A1C3F215BB335003C12A5 /* visits.json in Resources */ = {isa = PBXBuildFile; fileRef = CF5A1C3E215BB335003C12A5 /* visits.json */; };
 		CF66485821596390003B58A0 /* LocationManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF66485721596390003B58A0 /* LocationManagerExtensions.swift */; };
 		CF66485A215967F6003B58A0 /* ContactsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF664859215967F6003B58A0 /* ContactsExtension.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
+		CF594DD52160ECD700D04356 /* algemeneFuncties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = algemeneFuncties.swift; sourceTree = "<group>"; };
 		CF5A1C3E215BB335003C12A5 /* visits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visits.json; sourceTree = "<group>"; };
 		CF66485721596390003B58A0 /* LocationManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerExtensions.swift; sourceTree = "<group>"; };
 		CF664859215967F6003B58A0 /* ContactsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsExtension.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				CF66485B21596C13003B58A0 /* dateExtensions.swift */,
 				CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */,
 				CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */,
+				CF594DD52160ECD700D04356 /* algemeneFuncties.swift */,
 				CFE4D227215A600E005A4507 /* JsonExtensions.swift */,
 				CFE466CB2158F9A600179A69 /* Main.storyboard */,
 				CFE466D12158F9A800179A69 /* Assets.xcassets */,
@@ -189,6 +192,7 @@
 				CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */,
 				CFE466C82158F9A600179A69 /* AppDelegate.swift in Sources */,
 				CF66485821596390003B58A0 /* LocationManagerExtensions.swift in Sources */,
+				CF594DD62160ECD700D04356 /* algemeneFuncties.swift in Sources */,
 				CFE466E02158FC2000179A69 /* LogBoekVC.swift in Sources */,
 				CFE466D02158F9A600179A69 /* volgMe.xcdatamodeld in Sources */,
 				CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */,
