@@ -16,11 +16,11 @@
         <relationship name="bezocht" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bezoek" inverseName="metAdres" inverseEntity="Bezoek" syncable="YES"/>
     </entity>
     <entity name="Bezoek" representedClassName="Bezoek" syncable="YES" codeGenerationType="class">
-        <attribute name="arrival_1970" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="departure_1970" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="arrival_1970" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="departure_1970" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="metAdres" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Adres" inverseName="bezocht" inverseEntity="Adres" syncable="YES"/>
     </entity>
     <entity name="Tabellen" representedClassName="Tabellen" syncable="YES" codeGenerationType="class">

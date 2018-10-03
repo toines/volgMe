@@ -25,12 +25,12 @@ extension Adres : MKAnnotation
     public var title: String? {return naam}
 }
 extension Bezoek{    // datums in database zijn sinds 1970 !!!
-    var departureDate:Date{get {return Date(timeIntervalSince1970:self.departure_1970)}
-        set {self.departure_1970 = newValue.timeIntervalSince1970}}
-    var arrivalDate:Date{get {return Date(timeIntervalSince1970: self.arrival_1970)}
-        set {self.arrival_1970 = newValue.timeIntervalSince1970}}
-    public var coordinate:CLLocationCoordinate2D{get {return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)}
-        set {self.latitude = newValue.latitude ; self.longitude = newValue.longitude}
+    var departureDate:Date{get {return Date(timeIntervalSince1970:TimeInterval(self.departure_1970))}
+        set {self.departure_1970 = Float(newValue.timeIntervalSince1970)}}
+    var arrivalDate:Date{get {return Date(timeIntervalSince1970: TimeInterval(self.arrival_1970))}
+        set {self.arrival_1970 = Float(newValue.timeIntervalSince1970)}}
+    public var coordinate:CLLocationCoordinate2D{get {return CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))}
+        set {self.latitude = Float(newValue.latitude) ; self.longitude = Float(newValue.longitude)}
     }
     var cllocation:CLLocation {get {return CLLocation(coordinate: coordinate, altitude: 0, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: arrivalDate)}}
     convenience init(_ visite:CLVisit){
@@ -44,8 +44,8 @@ extension Bezoek{    // datums in database zijn sinds 1970 !!!
     convenience init(_ visite:myCLVisit){
         self.init(context:context)
         self.coordinate = CLLocationCoordinate2D(latitude: visite.latitude, longitude: visite.longitude)
-        self.arrival_1970 =  Double(visite.arrival_1970)
-        self.departure_1970 = Double(visite.departure_1970)
+        self.arrival_1970 =  visite.arrival_1970
+        self.departure_1970 = visite.departure_1970
         delegate.saveContext()
     }
 }
@@ -102,6 +102,13 @@ func telBezoeken()->Int
     do {  Bezoeken = try context.fetch(request)
     } catch let error {ErrMsg("foutje telBezoeken(.\(error.localizedDescription)",.debug, #function)}
     return Bezoeken.count
+}
+func fetchAlleBezoeken()->[Bezoek]{
+    let request:NSFetchRequest = Bezoek.fetchRequest()
+    var Bezoeken:[Bezoek] = []
+    do {  Bezoeken = try context.fetch(request)
+    } catch let error {ErrMsg("foutje telBezoeken(.\(error.localizedDescription)",.debug, #function)}
+    return Bezoeken
 }
 
 func zoekAdressenZonderLocatieKlaar()->Bool
@@ -217,7 +224,7 @@ func telBezoekenZonderAdres()->Int
 func checkBezoekenZonderAdres(){
     if let visiteZonderAdres = fetchFirstBezoekZonderAdres()
     {
-        if let closestAdres = fetchNearestAdres(latitude: (visiteZonderAdres.latitude), longitude: (visiteZonderAdres.longitude), distance: 50)
+        if let closestAdres = fetchNearestAdres(latitude: Double(visiteZonderAdres.latitude), longitude: Double(visiteZonderAdres.longitude), distance: 50)
         {
             visiteZonderAdres.metAdres = closestAdres
 //            closestAdres.addToBezocht(visiteZonderAdres)

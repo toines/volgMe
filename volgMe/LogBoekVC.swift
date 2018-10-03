@@ -8,6 +8,8 @@
 
 import UIKit
 
+var tabelData : CellGevens?
+
 class LogBoekVC: UIViewController {
 
     override func viewDidLoad() {
@@ -17,6 +19,7 @@ class LogBoekVC: UIViewController {
          StoreAllContactsAdresses()
          readJson()  //lees visites uit file
         }
+        if !(tabelData != nil) {tabelData = CellGevens()}
         checkForBackgroundForeground()
 
         // Do any additional setup after loading the view.

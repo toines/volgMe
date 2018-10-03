@@ -56,7 +56,38 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
 }
 class CellGevens {
     var datumDictionary = [String:(getoond : Bool,bijgewerkt : Bool,plaatsen :Set<String>,datums : [Date_70])]()
+    var datumDictionarySorted = [String]()
+    
     func insert(_ bezoek:Bezoek){
-        let x = datums(van: Date_70(bezoek.arrival_1970), totEnMet: Date_70(bezoek.departure_1970))
+        let dagen = datums(van: bezoek.arrival_1970, totEnMet: bezoek.departure_1970)
+        for dag in dagen
+        {
+            if let x = datumDictionary[dag.date.yyyyMM] {
+                var landen = x.plaatsen
+                if let land = bezoek.metAdres?.landcode {landen.insert(land)}
+                datumDictionary[dag.date.yyyyMM] = (getoond:false,bijgewerkt:false,plaatsen: landen,datums : x.datums)
+            }
+            else{
+                var landen = Set<String>()
+                if let land = bezoek.metAdres?.landcode {landen.insert(land)}
+                datumDictionary[dag.date.yyyyMM] = (getoond:true,bijgewerkt:false,plaatsen: landen,datums : [Date_70]())}
+            if let x = datumDictionary[dag.date.yyyyMMdd] {
+                var steden = x.plaatsen
+                if let stad = bezoek.metAdres?.stad {steden.insert(stad)}
+                datumDictionary[dag.date.yyyyMMdd] = (getoond:false,bijgewerkt:false,plaatsen: steden,datums : x.datums + [bezoek.arrival_1970])}
+            else {
+                var steden = Set<String>()
+                if let stad = bezoek.metAdres?.stad {steden.insert(stad)}
+                datumDictionary[dag.date.yyyyMMdd] = (getoond:true,bijgewerkt:false,plaatsen: steden,datums : [bezoek.arrival_1970])
+            }
+        }
+        datumDictionarySorted = Array(datumDictionary.keys).sorted()
+    }
+    init() {
+        let bezoeken = fetchAlleBezoeken()
+        for bezoek in bezoeken{
+            insert(bezoek)
+        }
+        
     }
 }
