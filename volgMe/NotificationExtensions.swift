@@ -8,35 +8,50 @@
 
 import Foundation
 import UIKit
+ func Foreground()
+{
+    ErrMsg("Foreground", .debug,#function)
+    if zoekAdressenZonderLocatieKlaar() {
+        NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
+        
+    }
+    ErrMsg ("#adressen:\(telAdressen()) #bezoeken:\(telBezoeken())",.debug, #function)
+    print("--------- ", #function)
+}
+func Background()
+{
+    ErrMsg("background", .debug, #function)
+}
+var checkBezoekenZonderAdresBezig = false
+
 extension LogBoekVC{
     func checkForBackgroundForeground()
     {
         //    if !(UIDevice.current.isBatteryMonitoringEnabled){UIDevice.current.isBatteryMonitoringEnabled = true}
         //   Foreground()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.Foreground), name: UIApplication.willEnterForegroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.Background), name: UIApplication.didEnterBackgroundNotification, object: nil)
         //    NotificationCenter.default.addObserver(self, selector: #selector(visiteVC.startZoekLocatieBijContacten),name:NSNotification.Name("zoekLocatieBijContacten"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadList),name:NSNotification.Name(rawValue: "load"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateAdresBezoeken),name:NSNotification.Name(rawValue: "checkBezoekenZonderAdres"), object: nil)
+
         //    NotificationCenter.default.addObserver(self, selector: #selector(visiteVC.updateKaart),name:NSNotification.Name("MAP"), object: nil)
         //    NotificationCenter.default.addObserver(self, selector: #selector(batteryLevelDidChange), name: .UIDeviceBatteryLevelDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goDown), name: NSNotification.Name("goDown"), object: nil)
         
     }
+    
+    @objc func updateAdresBezoeken()
+    {
+        ErrMsg("checkBezoekenZonderAdres()", .debug, #function)
+        checkBezoekenZonderAdres()
+//        NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
+    }
     @objc func loadList(){
         //    tabel.reloadData()
     }
-    @objc func Foreground()
-    {
-        //    ErrMsg("Foreground", .debug)
-        //    checkDbForMisingData()
-        //    readJson()  // externe data input
-    }
-    @objc func Background()
-    {
-        //    ErrMsg("background", .debug)
-    }
+
     @objc func goDown(){
         // voorbeeld
     }
+    
 }

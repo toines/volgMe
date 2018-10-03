@@ -33,25 +33,30 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            let context = fetchedResultsController.managedObjectContext
-//            context.delete(fetchedResultsController.object(at: indexPath))
-//            
-//            do {
-//                try context.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nserror = error as NSError
-//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-//            }
-//        }
-//    }
-//    
-//    func configureCell(_ cell: UITableViewCell, withEvent event: Event) {
-//        cell.textLabel!.text = event.timestamp!.description
-//    }
-
+    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //        if editingStyle == .delete {
+    //            let context = fetchedResultsController.managedObjectContext
+    //            context.delete(fetchedResultsController.object(at: indexPath))
+    //
+    //            do {
+    //                try context.save()
+    //            } catch {
+    //                // Replace this implementation with code to handle the error appropriately.
+    //                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+    //                let nserror = error as NSError
+    //                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+    //            }
+    //        }
+    //    }
+    //
+    //    func configureCell(_ cell: UITableViewCell, withEvent event: Event) {
+    //        cell.textLabel!.text = event.timestamp!.description
+    //    }
+    
 }
-
+class CellGevens {
+    var datumDictionary = [String:(getoond : Bool,bijgewerkt : Bool,plaatsen :Set<String>,datums : [Date_70])]()
+    func insert(_ bezoek:Bezoek){
+        let x = datums(van: Date_70(bezoek.arrival_1970), totEnMet: Date_70(bezoek.departure_1970))
+    }
+}

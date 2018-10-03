@@ -237,17 +237,17 @@ extension String{
     
     
 }
-func datums(van:Date,totEnMet:Date)->[Date]{
-    let Formatter = DateFormatter()
-    Formatter.dateFormat = "yyMMdd"
-    var z = Formatter.date(from: Formatter.string(from:van))!
-    var datumTabel = [Date]()
-    while z < totEnMet {
-        datumTabel.append(z)
-        z = z.addingTimeInterval(24*60*60)
-    }
-    return datumTabel
-}
+//func datums(van:Date,totEnMet:Date)->[Date]{
+//    let Formatter = DateFormatter()
+//    Formatter.dateFormat = "yyMMdd"
+//    var z = Formatter.date(from: Formatter.string(from:van))!
+//    var datumTabel = [Date]()
+//    while z < totEnMet {
+//        datumTabel.append(z)
+//        z = z.addingTimeInterval(24*60*60)
+//    }
+//    return datumTabel
+//}
 func datums(van:Date_70,totEnMet:Date_70)->[Date_70]{
     let Formatter = DateFormatter()
     Formatter.dateFormat = "yyMMdd"

@@ -13,7 +13,7 @@
         <attribute name="soortPlaats" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stad" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="straatHuisnummer" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="bezocht" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bezoek" inverseName="metAdres" inverseEntity="Bezoek" syncable="YES"/>
+        <relationship name="bezocht" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bezoek" inverseName="metAdres" inverseEntity="Bezoek" syncable="YES"/>
     </entity>
     <entity name="Bezoek" representedClassName="Bezoek" syncable="YES" codeGenerationType="class">
         <attribute name="arrival_1970" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -22,17 +22,6 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="metAdres" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Adres" inverseName="bezocht" inverseEntity="Adres" syncable="YES"/>
-        <relationship name="opDag" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dag" inverseName="relationship" inverseEntity="Dag" syncable="YES"/>
-    </entity>
-    <entity name="Dag" representedClassName="Dag" syncable="YES" codeGenerationType="class">
-        <attribute name="dag" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="inMaand" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Maand" inverseName="metDagen" inverseEntity="Maand" syncable="YES"/>
-        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bezoek" inverseName="opDag" inverseEntity="Bezoek" syncable="YES"/>
-    </entity>
-    <entity name="Maand" representedClassName="Maand" syncable="YES" codeGenerationType="class">
-        <attribute name="landen" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="maand" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="metDagen" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dag" inverseName="inMaand" inverseEntity="Dag" syncable="YES"/>
     </entity>
     <entity name="Tabellen" representedClassName="Tabellen" syncable="YES" codeGenerationType="class">
         <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -40,9 +29,7 @@
     </entity>
     <elements>
         <element name="Adres" positionX="-63" positionY="-18" width="128" height="240"/>
-        <element name="Bezoek" positionX="-275.8203125" positionY="-126.75" width="128" height="148"/>
+        <element name="Bezoek" positionX="-275.8203125" positionY="-126.75" width="128" height="135"/>
         <element name="Tabellen" positionX="247.671875" positionY="145.296875" width="128" height="75"/>
-        <element name="Dag" positionX="331.78515625" positionY="-189.44140625" width="128" height="88"/>
-        <element name="Maand" positionX="63" positionY="36" width="128" height="90"/>
     </elements>
 </model>

@@ -83,7 +83,7 @@ func fetchFirstAdres()->Adres? //return 1 adres
 {
     var adressen:[Adres] = []
     do {let request: NSFetchRequest = Adres.fetchRequest()
-        adressen = try context.fetch(request)} catch let error {ErrMsg("fetchAdres foutje .\(error.localizedDescription)",.debug)}
+        adressen = try context.fetch(request)} catch let error {ErrMsg("fetchAdres foutje .\(error.localizedDescription)",.debug, #function)}
     return adressen.first
 }
 
@@ -91,7 +91,7 @@ func telAdressen()->Int
 {
     var adressen:[Adres] = []
     do {let request: NSFetchRequest = Adres.fetchRequest()
-        adressen = try context.fetch(request)} catch let error {ErrMsg("telAdressen foutje .\(error.localizedDescription)",.debug)}
+        adressen = try context.fetch(request)} catch let error {ErrMsg("telAdressen foutje .\(error.localizedDescription)",.debug, #function)}
     return adressen.count
 }
 
@@ -100,19 +100,17 @@ func telBezoeken()->Int
     let request:NSFetchRequest = Bezoek.fetchRequest()
     var Bezoeken:[Bezoek] = []
     do {  Bezoeken = try context.fetch(request)
-    } catch let error {ErrMsg("foutje telBezoeken(.\(error.localizedDescription)",.debug)}
+    } catch let error {ErrMsg("foutje telBezoeken(.\(error.localizedDescription)",.debug, #function)}
     return Bezoeken.count
 }
 
 func zoekAdressenZonderLocatieKlaar()->Bool
 {
+    if fetchFirstAdresZonderLocation() == nil {return true}
     checkAdressenZonderLocatie()
     return false
 }
-func bezoekenZonderAdresKlaar()->Bool
-{
-    return false
-}
+
 func fetchNearestAdres(latitude:Double,longitude:Double,distance:Double)->Adres? //return 1 adres
 {
     let maxDelta = 0.002
@@ -131,7 +129,7 @@ func fetchNearestAdres(latitude:Double,longitude:Double,distance:Double)->Adres?
     for (index,element) in naburigeAdressen.enumerated()
     {
         let afstand = CLLocation(latitude: element.latitude, longitude: element.longitude).distance(from: CLLocation.init(latitude: latitude, longitude: longitude))
-        ErrMsg("afstand = \(afstand) : \(element.naam ?? "")",.debug)
+        ErrMsg("afstand = \(afstand) : \(element.naam ?? "")",.debug, #function)
         if afstand < kortsteAfstand {kortsteAfstand = afstand
             indexKortsteAfstand = index}
     }
@@ -157,13 +155,16 @@ func geocode(_ location:String, completion: @escaping (CLPlacemark?,Error?)->())
 
 func checkAdressenZonderLocatie(){
     let adres = fetchFirstAdresZonderLocation()
-    if adres == nil {checkBezoekenZonderAdres();ErrMsg("checkAdressenZonderLocatie afgewerkt", .debug);return}
+    if adres == nil {checkBezoekenZonderAdres();ErrMsg("checkAdressenZonderLocatie afgewerkt", .debug, #function);return}
     let adr = "\(adres!.straatHuisnummer ?? "") \(adres!.postcode ?? "") \(adres!.stad ?? "")"
     geocode(adr) { placemark, error in
         guard let placemark = placemark, error == nil else {
             let code = (error! as NSError).code
-            switch code {case 8 : ErrMsg((adres!.naam ?? "noname") + " " + adr + " verwijderd", .warning) ; context.delete(adres!);delegate.saveContext();checkAdressenZonderLocatie(); return
-            default: ErrMsg("adressen geocoding overload: stopped till next start", .warning) ; return }}
+            switch code {case 8 : ErrMsg((adres!.naam ?? "noname") + " " + adr + " verwijderd", .warning, #function) ; context.delete(adres!);delegate.saveContext();checkAdressenZonderLocatie(); return
+            default: ErrMsg("adressen geocoding overload: stopped 1 minute", .warning, #function)
+                sleep(60)
+                checkAdressenZonderLocatie()
+                return }}
         DispatchQueue.main.async {
             //  update UI here
             adres!.coordinate = (placemark.location?.coordinate ?? nil)!
@@ -173,7 +174,7 @@ func checkAdressenZonderLocatie(){
             adres!.stad = placemark.locality
             adres!.soortPlaats = "Kennis"
             delegate.saveContext()
-            sleep(1)
+            sleep(UInt32(0.8))
             checkAdressenZonderLocatie()
         }
     }
@@ -185,8 +186,8 @@ func fetchFirstAdresZonderLocation()->Adres?
     var AdresZonderLocation:[Adres] = []
     request.predicate = NSPredicate(format: "latitude = 0")
     do {  AdresZonderLocation = try context.fetch(request)
-    } catch let error {ErrMsg("foutje fetchFirstAdresZonderLocation(.\(error.localizedDescription)",.debug)}
-    ErrMsg("er zijn nog \(AdresZonderLocation.count) adressen zonder coördinaten", .debug)
+    } catch let error {ErrMsg("foutje fetchFirstAdresZonderLocation(.\(error.localizedDescription)",.debug, #function)}
+    ErrMsg("er zijn nog \(AdresZonderLocation.count) adressen zonder coördinaten", .debug, #function)
     return AdresZonderLocation.first
 }
 func fetchFirstBezoekZonderAdres()->Bezoek?
@@ -196,20 +197,34 @@ func fetchFirstBezoekZonderAdres()->Bezoek?
     request.predicate = NSPredicate(format: "metAdres = nil")
     //   request.fetchLimit = 1
     do {  BezoekenZonderAdres = try context.fetch(request)
-    } catch let error {ErrMsg("foutje fetchFirstBezoekZonderAdres(.\(error.localizedDescription)",.debug)}
-    ErrMsg("er zijn nog \(BezoekenZonderAdres.count) bezoeken zonder adres", .debug)
+    } catch let error {ErrMsg("foutje \(error.localizedDescription)",.debug, #function)}
+    ErrMsg("er zijn nog \(BezoekenZonderAdres.count) bezoeken zonder adres", .debug, #function)
     return BezoekenZonderAdres.first
 }
+func telBezoekenZonderAdres()->Int
+{
+    let request:NSFetchRequest = Bezoek.fetchRequest()
+    var BezoekenZonderAdres:[Bezoek] = []
+    request.predicate = NSPredicate(format: "metAdres = nil")
+    //   request.fetchLimit = 1
+    do {  BezoekenZonderAdres = try context.fetch(request)
+    } catch let error {ErrMsg("foutje \(error.localizedDescription)",.debug, #function)}
+    ErrMsg("er zijn nog \(BezoekenZonderAdres.count) bezoeken zonder adres", .debug, #function)
+    return BezoekenZonderAdres.count
+}
+
 
 func checkBezoekenZonderAdres(){
     if let visiteZonderAdres = fetchFirstBezoekZonderAdres()
     {
-        if let closestAdres = fetchNearestAdres(latitude: visiteZonderAdres.latitude, longitude: visiteZonderAdres.longitude, distance: 50)
+        if let closestAdres = fetchNearestAdres(latitude: (visiteZonderAdres.latitude), longitude: (visiteZonderAdres.longitude), distance: 50)
         {
             visiteZonderAdres.metAdres = closestAdres
-            //            closestAdres.addToBezocht(visiteZonderAdresUitDB)}
+//            closestAdres.addToBezocht(visiteZonderAdres)
             delegate.saveContext()
-            checkBezoekenZonderAdres()
+            ErrMsg("\(telBezoekenZonderAdres())",.debug,#function)
+            NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
+//            checkBezoekenZonderAdres()
             return
             
         }
@@ -217,12 +232,15 @@ func checkBezoekenZonderAdres(){
         {
             sleep(10)
         }
-        ErrMsg("start Geocoding bezoek", .debug)
+        ErrMsg("start Geocoding bezoek", .debug, #function)
         geocode(visiteZonderAdres.coordinate, completion: { placemark, error in
             guard let placemark = placemark, error == nil else {
                 let code = (error! as NSError).code
-                switch code {case 8 : ErrMsg("\(visiteZonderAdres.arrivalDate) \(visiteZonderAdres.latitude ) \(visiteZonderAdres.longitude)  verwijderd", .warning) ; context.delete(visiteZonderAdres);delegate.saveContext();checkBezoekenZonderAdres(); return
-                default: ErrMsg("bezoeken geocoding overload: stopped till next start", .warning) ; return }}
+                switch code {case 8 : ErrMsg("\(visiteZonderAdres.arrivalDate) \(visiteZonderAdres.latitude ) \(visiteZonderAdres.longitude)  verwijderd", .warning, #function) ; context.delete(visiteZonderAdres);delegate.saveContext();checkBezoekenZonderAdres(); return
+                default: ErrMsg("bezoeken geocoding overload: stopped 1 minute", .warning, #function);
+                    sleep(60)
+                NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
+                    return }}
             DispatchQueue.main.async {
                 //  update UI here
                 let adres = Adres(context: context)
@@ -233,12 +251,14 @@ func checkBezoekenZonderAdres(){
                 adres.stad = placemark.locality
                 visiteZonderAdres.metAdres = adres
                 delegate.saveContext()
-                sleep(1)
-                checkBezoekenZonderAdres()
+                sleep(UInt32(0.8))
+                NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
+//                checkBezoekenZonderAdres()
             }
         })
     }
-    else {ErrMsg("checkBezoekenZonderAdres afgewerkt", .debug)}
+    else {ErrMsg("checkBezoekenZonderAdres afgewerkt", .debug, #function)}
+    return
 }
 
 

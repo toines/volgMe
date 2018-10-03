@@ -13,9 +13,17 @@ var soortPlaatsKeuzes = ["":"🔴", "Hotel":"","Slaapplaats":"","Thuis":"🏠","
 
 
 
-func ErrMsg(_ titel:String,_ fout:soortFout){
+//func ErrMsg(_ titel:String,_ fout:soortFout){
+//    switch fout {
+//    case .warning : print ("warning: " + titel)
+//    case .debug :print ("debug: " + titel)
+//    default: print ("ERROR: " + titel) }
+//}
+
+func ErrMsg(_ titel:String,_ fout:soortFout,_ function:String){
     switch fout {
-    case .warning : print ("warning: " + titel)
-    case .debug :print ("debug: " + titel)
-    default: print ("ERROR: " + titel) }
+    case .warning : print (function + "..warning: " + titel)
+    case .debug :print (function + "..debug: " + titel)
+    default: print (function + "..ERROR: " + titel) }
 }
+
