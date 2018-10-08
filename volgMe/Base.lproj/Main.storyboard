@@ -17,43 +17,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SBr-vt-Kid">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="344"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="IDa-Rw-nkc">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IDa-Rw-nkc" id="LFC-Z6-dWu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Inhoud" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYL-iW-iys">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="44"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="19s-jH-Bas">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SBr-vt-Kid">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="477.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="IDa-Rw-nkc">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IDa-Rw-nkc" id="LFC-Z6-dWu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYL-iW-iys">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <constraints>
+                                                    <constraint firstItem="LYL-iW-iys" firstAttribute="height" secondItem="IDa-Rw-nkc" secondAttribute="height" id="0Cg-Xe-OoE"/>
+                                                    <constraint firstItem="LYL-iW-iys" firstAttribute="width" secondItem="IDa-Rw-nkc" secondAttribute="width" id="1NO-i3-bFP"/>
+                                                    <constraint firstItem="LYL-iW-iys" firstAttribute="centerX" secondItem="IDa-Rw-nkc" secondAttribute="centerX" id="WLf-7B-PZ2"/>
+                                                    <constraint firstItem="LYL-iW-iys" firstAttribute="centerY" secondItem="IDa-Rw-nkc" secondAttribute="centerY" id="xol-T9-JiP"/>
+                                                </constraints>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="2W5-FN-z6c"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="b3t-rB-qbi"/>
+                                        </connections>
+                                    </tableView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nc-il-0d1">
+                                        <rect key="frame" x="0.0" y="477.5" width="375" height="50"/>
                                         <constraints>
-                                            <constraint firstItem="LYL-iW-iys" firstAttribute="height" secondItem="IDa-Rw-nkc" secondAttribute="height" id="0Cg-Xe-OoE"/>
-                                            <constraint firstItem="LYL-iW-iys" firstAttribute="width" secondItem="IDa-Rw-nkc" secondAttribute="width" id="1NO-i3-bFP"/>
-                                            <constraint firstItem="LYL-iW-iys" firstAttribute="centerX" secondItem="IDa-Rw-nkc" secondAttribute="centerX" id="WLf-7B-PZ2"/>
-                                            <constraint firstItem="LYL-iW-iys" firstAttribute="centerY" secondItem="IDa-Rw-nkc" secondAttribute="centerY" id="xol-T9-JiP"/>
+                                            <constraint firstAttribute="height" constant="50" id="5QU-GN-h7G"/>
                                         </constraints>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="2W5-FN-z6c"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="b3t-rB-qbi"/>
-                                </connections>
-                            </tableView>
+                                    </stackView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5Lu-8T-QRS">
+                                        <rect key="frame" x="0.0" y="527.5" width="375" height="119.5"/>
+                                    </mapView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5Lu-8T-QRS" firstAttribute="top" secondItem="1nc-il-0d1" secondAttribute="bottom" id="2K2-uh-cQo"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Lu-8T-QRS" secondAttribute="trailing" id="8oW-Da-5FA"/>
+                                    <constraint firstItem="SBr-vt-Kid" firstAttribute="leading" secondItem="19s-jH-Bas" secondAttribute="leading" id="UFd-dU-b2O"/>
+                                    <constraint firstItem="1nc-il-0d1" firstAttribute="top" secondItem="SBr-vt-Kid" secondAttribute="bottom" id="Ykk-Sh-Wdx"/>
+                                    <constraint firstItem="SBr-vt-Kid" firstAttribute="height" secondItem="5Lu-8T-QRS" secondAttribute="height" multiplier="4" id="gzX-gw-WRz"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="19s-jH-Bas" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="bPB-Zq-IDo"/>
+                            <constraint firstItem="19s-jH-Bas" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bUM-Hq-7dM"/>
+                            <constraint firstItem="19s-jH-Bas" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" id="qvD-YI-44r"/>
+                            <constraint firstItem="19s-jH-Bas" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="u4Q-QW-hiJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="kaart" destination="5Lu-8T-QRS" id="xJx-Gs-8I3"/>
+                        <outlet property="knoppenView" destination="1nc-il-0d1" id="C7C-Kq-CHj"/>
+                        <outlet property="tableViewDatum" destination="SBr-vt-Kid" id="hVg-4t-i2N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

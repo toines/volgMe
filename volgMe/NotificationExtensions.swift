@@ -47,7 +47,7 @@ extension LogBoekVC{
 //        NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
     }
     @objc func loadList(){
-        //    tabel.reloadData()
+            tableViewDatum.reloadData()
     }
 
     @objc func goDown(){

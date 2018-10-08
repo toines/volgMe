@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import MapKit
 
 var tabelData : CellGevens?
 
 class LogBoekVC: UIViewController {
+    @IBOutlet var tableViewDatum: UITableView!
+    @IBOutlet var kaart: MKMapView!
+    @IBOutlet var knoppenView: UIStackView!
+    let searchController = UISearchController(searchResultsController: nil)
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initLocationManager()
@@ -20,6 +26,24 @@ class LogBoekVC: UIViewController {
          readJson()  //lees visites uit file
         }
         if !(tabelData != nil) {tabelData = CellGevens()}
+//        print ("---")
+//        tabelData?.expandMaanden()
+//        print(tabelData?.kalender)
+//        print(tabelData?.kalender.count)
+//        tabelData?.expandDagenVoor(maand: "201808")
+//        print(tabelData?.kalender)
+//        print(tabelData?.kalender.count)
+//        tabelData?.expandVisitesVoor(dag: "20180831")
+//        print(tabelData?.kalender)
+//        print(tabelData?.kalender.count)
+//        tabelData?.colapseVisitesVoor(dag: "20180831")
+//        print(tabelData?.kalender)
+//        print(tabelData?.kalender.count)
+//        tabelData?.colapseDagenVoor(maand: "201808")
+//        print(tabelData?.kalender)
+//        print(tabelData?.kalender.count)
+
+
         checkForBackgroundForeground()
 
         // Do any additional setup after loading the view.
