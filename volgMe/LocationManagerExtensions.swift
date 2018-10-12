@@ -25,12 +25,17 @@ extension LogBoekVC : CLLocationManagerDelegate{
         }
     }
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
-        didVisit(Bezoek(visit))
+        if (visit.arrivalDate > Date.distantPast && visit.departureDate < Date.distantFuture)
+        {didVisit(Bezoek(visit))}
+        let x = telBezoeken()
+        stuurNotification(title: "\(x) didVisit:", body: " arr:\(visit.arrivalDate.DD_hh_mm()) dep:\(visit.departureDate.DD_hh_mm())", badge: 0)
+ //       sendNotification()
     }
     func  locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     }
     func didVisit(_ visit:Bezoek){
         delegate.saveContext()
+
     }
 }
 

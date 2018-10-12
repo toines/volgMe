@@ -94,7 +94,14 @@ func telAdressen()->Int
         adressen = try context.fetch(request)} catch let error {ErrMsg("telAdressen foutje .\(error.localizedDescription)",.debug, #function)}
     return adressen.count
 }
-
+func fetchBezoek(datum:Date_70)->Bezoek? {
+    let request:NSFetchRequest = Bezoek.fetchRequest()
+    request.predicate = NSPredicate(format: "arrival_1970 == %lf",datum)
+    var Bezoeken:[Bezoek] = []
+    do {  Bezoeken = try context.fetch(request)
+    } catch let error {ErrMsg("foutje telBezoeken(.\(error.localizedDescription)",.debug, #function)}
+    return Bezoeken.first
+}
 func telBezoeken()->Int
 {
     let request:NSFetchRequest = Bezoek.fetchRequest()

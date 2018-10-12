@@ -17,21 +17,65 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        print ("tabelData?.kalender.count : \(tabelData?.kalender.count ?? 0) ?? 0")
         return tabelData?.kalender.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "\(tabelData!.kalender[indexPath.row].0) \(tabelData!.kalender[indexPath.row].1.date.yyyy_MM_dd_HH_mm_ss) \(indexPath.section) \(indexPath.row)"
+        let info = tabelData!.kalender[indexPath.row]
+        var id = ""
+        switch info.0.count {
+        case 6 : id = "maand"
+        case 8: id = "dag"
+        default: id = "visite"
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)
+        switch id {
+        case "maand": vulMaandCell(cell: cell as! maandTableViewCell, maand: info.0)
+        case "dag": vulDagCell(cell: cell as! dagTableViewCell, dag: info.0)
+        default: vulVisiteCell(cell: cell as! visiteTableViewCell, visite: info.0,forDatum: info.1)
+        }
         return cell
     }
-    
+    func vulMaandCell(cell:maandTableViewCell ,maand:String){
+        var x = ""
+        for plaats in tabelData?.datumDictionary[maand]?.plaatsen ?? Set<String>() {x = x + "\(plaats) " }
+        cell.landen.text = "\(x)"
+        cell.jaar.text = String(maand.prefix(4))
+        cell.maand.text = maand.toDate().MMMM
+    }
+    func vulDagCell(cell:dagTableViewCell ,dag:String){
+        var x = ""
+        for plaats in tabelData?.datumDictionary[dag]?.plaatsen ?? Set<String>() {x = x + "\(plaats) " }
+        cell.stad.text = x
+        cell.datum.text = dag.toDate().ddMMM       
+        cell.dag.text = dag.toDate().EEEE()
+    }
+    func vulVisiteCell(cell:visiteTableViewCell, visite:String, forDatum : Date_70)
+    {
+        if let x = fetchBezoek(datum: forDatum) {
+            if x.arrivalDate.dd == visite.suffix(3).prefix(2) {cell.van.text = x.arrivalDate.hh_mm()} else {cell.tot.text = "....."}
+            if x.departureDate.dd == visite.suffix(3).prefix(2) {cell.tot.text = x.departureDate.hh_mm()} else {cell.tot.text = "....."}
+            if let y = x.metAdres
+            {
+            cell.stad.text = y.stad
+                if let naam = y.naam {cell.naamOfStraat.text = naam} else
+                {cell.naamOfStraat.text = y.straatHuisnummer}
+            }
+//            cell.datum.text = forDatum.date.ddMMM
+        }
+        
+    }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let x = tabelData?.kalender[indexPath.row].0 {
+            if x.count == 6 {tabelData?.handleDagenVoor(maand: x) }
+            if x.count == 8 {tabelData?.handleVisitesVoor(dag: x) }
+            tableView.reloadData()
+        }
     }
     //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     //        if editingStyle == .delete {
@@ -71,6 +115,18 @@ class CellGevens {
     struct dag {var inhoud = [String:visite]()}
     var maand = [String:dag]()
     var cellData = [String]()
+    func expandVisitesVoor(dag:String) {
+        kalender = sortKalender(kalender + datumDictionary[dag]!.datums.map{(dag + "0",$0)})}
+    func collapseVisitesVoor(dag:String){
+        kalender = sortKalender(kalender.filter{$0.0.count < 9 || $0.0.prefix(8) != dag})
+    }
+    func collapseDagenVoor(maand:String){
+        kalender = sortKalender(kalender.filter{$0.0.count < 7 || $0.0.prefix(6) != maand})
+    }
+    func handleVisitesVoor(dag:String) {
+        if ((kalender.filter{$0.0.prefix(8) == dag}).count) == 1 {expandVisitesVoor(dag: dag)}
+        else {collapseVisitesVoor(dag: dag)}}
+
      func vulCellData(){
         cellData = (datumDictionary.filter{$0.value.getoond == true}).keys.sorted()
     }
@@ -80,16 +136,13 @@ class CellGevens {
     func expandDagenVoor(maand:String) {
         let x = (datumDictionary.filter{$0.key.count == 8  && $0.key.prefix(6) == maand}).keys.sorted()
         kalender = sortKalender(kalender + x.map{($0,Date_70())})}
+    func handleDagenVoor(maand:String) {
+        if ((kalender.filter{$0.0.prefix(6) == maand}).count) == 1 {expandDagenVoor(maand: maand)}
+        else {collapseDagenVoor(maand: maand)}}
+//        let x = (datumDictionary.filter{$0.key.count == 8  && $0.key.prefix(6) == maand}).keys.sorted()
+//        kalender = sortKalender(kalender + x.map{($0,Date_70())})}
 
-    func expandVisitesVoor(dag:String) {
-        kalender = sortKalender(kalender + datumDictionary[dag]!.datums.map{(dag + "0",$0)})}
-    func colapseVisitesVoor(dag:String){
-        kalender = sortKalender(kalender.filter{$0.0.count < 9 || $0.0.prefix(8) != dag})
-    }
-    func colapseDagenVoor(maand:String){
-        kalender = sortKalender(kalender.filter{$0.0.count < 7 || $0.0.prefix(6) != maand})
-    }
-    
+     
     func insert(_ bezoek:Bezoek){
         let dagen = datums(van: bezoek.arrival_1970, totEnMet: bezoek.departure_1970)
         for dag in dagen

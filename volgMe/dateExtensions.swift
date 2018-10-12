@@ -36,8 +36,8 @@ extension Date
         return Formatter.string(from: self)
     }
     var geldig :Bool {get {return (self != Date.distantFuture) && (self != Date.distantPast) }}
-    var eindeDag :Date {get {return (dateToFormattedString("yyyyMMdd235959").toDate(yyyyMMddHHmmss))}}
-    var beginDag :Date {get {return (dateToFormattedString("yyyyMMdd000001").toDate(yyyyMMddHHmmss))}}
+    var eindeDag :Date {get {return (dateToFormattedString("yyyyMMdd235959").toDate())}}
+    var beginDag :Date {get {return (dateToFormattedString("yyyyMMdd000001").toDate())}}
     var dagLong :  String {get {return self.dagLong0()}}
     var dd : String {get {return self.dateToFormattedString("dd")}}
     var d : String {get {return self.dateToFormattedString("d")}}
@@ -60,6 +60,8 @@ extension Date
     var dd_MMM_yyyy_HH_mm : String {get {return self.dateToFormattedString("dd MMM yyyy HH:mm")}}
     var yyMMddHHmm : String {get {return self.dateToFormattedString("yyMMddHHmm")}}
     var dd_MM : String {get {return self.dateToFormattedString("dd-MM")}}
+    var dd_MMM : String {get {return self.dateToFormattedString("dd-MMM")}}
+    var ddMMM : String {get {return self.dateToFormattedString("d MMM")}}
     var HHmm : String{get {return self.dateToFormattedString("HH:mm")}}
     var HH_mm_ss : String{get {return self.dateToFormattedString("HH:mm:ss SSS")}}
     var eersteVanDeMaandOm0000 : Date {get {
@@ -199,8 +201,9 @@ extension String{
         
         return (self.yyyyMMddHHmmssToDate,tot)}}
     
-    var yyyyMMddHHmmssToDate : Date {get {return self.toDate("yyyyMMddHHmmss")}}
-    func toDate(_ _dateFormat:String)->Date
+    var yyyyMMddHHmmssToDate : Date {get {return self.toDate()}}
+    
+    func toDate()->Date
     {
         let Formatter = DateFormatter()
         //        Formatter.dateFormat = _dateFormat
@@ -256,7 +259,9 @@ func datums(van:Date_70,totEnMet:Date_70)->[Date_70]{
     while z < totEnMet.date {
         datumTabel.append(Date_70(z.timeIntervalSince1970))
         z = z.addingTimeInterval(24*60*60)
+        if datumTabel.count > 10 {return [Date_70]()}
     }
+    ErrMsg("\(z) ....  \(datumTabel.count)   .... \(abs(van - totEnMet))", .debug, #function)
     return datumTabel
 }
 func aantalDatums(van:Date_70,totEnMet:Date_70)->Int{
