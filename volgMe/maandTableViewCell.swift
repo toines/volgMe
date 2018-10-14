@@ -9,6 +9,13 @@
 import UIKit
 
 class maandTableViewCell: UITableViewCell {
+    @IBOutlet var knop: UIButton!
+    @IBAction func geselecteerd(_ sender: Any) {
+        print ("\(self.knop.title(for: .normal) ?? "")")
+        if let x = self.knop.title(for: .normal) {tabelData!.handleDagenVoor(maand:x)}
+        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
+
+    }
     @IBOutlet var jaar: UILabel!
     @IBOutlet var maand: UILabel!
     @IBOutlet var landen: UILabel!
@@ -25,3 +32,5 @@ class maandTableViewCell: UITableViewCell {
     }
 
 }
+
+

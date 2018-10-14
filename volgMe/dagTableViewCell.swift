@@ -9,7 +9,17 @@
 import UIKit
 
 class dagTableViewCell: UITableViewCell {
-    @IBOutlet var dag: UILabel!
+    
+    @IBOutlet var dagStackView: UIStackView!
+    @IBOutlet var knop: UIButton!
+    @IBAction func geselecteerd(_ sender: Any) {
+        print ("\(self.knop.title(for: .normal) ?? "")")
+        if let x = self.knop.title(for: .normal) {tabelData!.handleVisitesVoor(dag:x)}
+        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
+        
+    }
+
+    
     @IBOutlet var datum: UILabel!
     @IBOutlet var stad: UILabel!
 

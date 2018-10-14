@@ -9,11 +9,11 @@
 import UIKit
 
 class visiteTableViewCell: UITableViewCell {
-    @IBOutlet var datum: UILabel!
     @IBOutlet var van: UILabel!
     @IBOutlet var tot: UILabel!
-    @IBOutlet var naamOfStraat: UILabel!
+    @IBOutlet var straat: UILabel!
     @IBOutlet var stad: UILabel!
+    @IBOutlet var naam: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
