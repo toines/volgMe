@@ -14,7 +14,7 @@ class maandTableViewCell: UITableViewCell {
         print ("\(self.knop.title(for: .normal) ?? "")")
         if let x = self.knop.title(for: .normal) {tabelData!.handleDagenVoor(maand:x)}
         NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
-
+        print ("dagTabel : \(tabelData?.dagTabel.count) , kalender : \(tabelData?.kalender.count)")
     }
     @IBOutlet var jaar: UILabel!
     @IBOutlet var maand: UILabel!

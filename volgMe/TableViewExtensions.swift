@@ -141,7 +141,7 @@ class CellGevens {
 //    struct visite {var inhoud = [String]()}
 //    struct dag {var inhoud = [String:visite]()}
 //    var maand = [String:dag]()
-    var cellData = [String]()
+ //   var cellData = [String]()
 //    func expandVisitesVoor(dag:String) {
 //        kalender = sortKalender(kalender + datumDictionary[dag]!.datums.map{(dag + "0",$0)})}
 //    func collapseVisitesVoor(dag:String){
@@ -152,26 +152,40 @@ class CellGevens {
         for dag in x {
           var y = datumDictionary[dag]
             y?.getoond = false
-          datumDictionary[dag] = y
+          datumDictionary[dag] = y  // oud
+          
         }
+        kalender = kalender.filter{$0.count < 7 || $0.prefix(6) != maand} //oud
         
-        kalender = kalender.filter{$0.count < 7 || $0.prefix(6) != maand}
+        dagTabel = dagTabel.filter{$0.key.count < 7 || $0.key.prefix(6) != maand}
         
     }
     func handleVisitesVoor(dag:String) {
-        var x = datumDictionary[dag]
-        if let y = x?.getoond {x?.getoond = !y}
-        datumDictionary[dag] = x
+        var x = datumDictionary[dag]     //oud
+        if let y = x?.getoond {x?.getoond = !y}     //oud
+        datumDictionary[dag] = x     //oud
+        
+        if let x = dagTabel[dag] {
+            if x.count > 0 {dagTabel[dag] = [Date_70]()} else {dagTabel[dag] = datumDictionary[dag]?.datums}
+
+    }
     }
 
-     func vulCellData(){
-        cellData = (datumDictionary.filter{$0.value.getoond == true}).keys.sorted()
-    }
-    func expandMaanden() {let x = (datumDictionary.filter{$0.key.count == 6}).keys.sorted()
-        kalender = x}
-    func expandDagenVoor(maand:String) {
-        kalender = (kalender + (datumDictionary.filter{$0.key.count == 8  && $0.key.prefix(6) == maand}).keys).sorted()
+//     func vulCellData(){
+//        cellData = (datumDictionary.filter{$0.value.getoond == true}).keys.sorted()
+//    }
+    func expandMaanden() {
+        let x = (datumDictionary.filter{$0.key.count == 6}).keys.sorted()  // oud
+        kalender = x   // oud
         
+        let y = (datumDictionary.filter{$0.key.count == 6}).keys
+        for z in y {dagTabel[z] = [Date_70]()}
+    }
+    func expandDagenVoor(maand:String) {
+        kalender = (kalender + (datumDictionary.filter{$0.key.count == 8  && $0.key.prefix(6) == maand}).keys).sorted()  // oud
+        
+        let y = (datumDictionary.filter{$0.key.count == 8  && $0.key.prefix(6) == maand}).keys
+        for z in y {dagTabel[z] = [Date_70]()}
     }
         
     func handleDagenVoor(maand:String) {
@@ -203,7 +217,7 @@ class CellGevens {
                 datumDictionary[dag.date.yyyyMMdd] = dictData(getoond:false,bijgewerkt:false,plaatsen: steden,datums : [bezoek.arrival_1970])
             }
         }
-        vulCellData()
+//        vulCellData()
     }
     init() {
         let bezoeken = fetchAlleBezoeken()

@@ -32,7 +32,7 @@ class LogBoekVC: UIViewController {
         tabelData?.expandMaanden()
         print ("---")
         print (tabelData?.kalender  ?? "")
-
+        initiateSearchBar()
         vraagToestemmingVoorNotifications()
         checkForBackgroundForeground()
         // Do any additional setup after loading the view.

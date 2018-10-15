@@ -33,10 +33,10 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z3D-sg-eC9">
-                                                            <rect key="frame" x="10" y="0.0" width="355" height="100"/>
+                                                            <rect key="frame" x="10" y="0.0" width="355" height="80"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYL-iW-iys">
-                                                                    <rect key="frame" x="0.0" y="38" width="48" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="28" width="48" height="24"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="LYL-iW-iys" secondAttribute="height" multiplier="2:1" id="N2n-tZ-2nT"/>
                                                                     </constraints>
@@ -45,7 +45,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Augustus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJC-p2-eAc">
-                                                                    <rect key="frame" x="56" y="38" width="84" height="24"/>
+                                                                    <rect key="frame" x="56" y="28" width="84" height="24"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="gJC-p2-eAc" secondAttribute="height" multiplier="7:2" id="sNC-9H-6mf"/>
                                                                     </constraints>
@@ -54,7 +54,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfW-jl-nhH">
-                                                                    <rect key="frame" x="148" y="41" width="207" height="18"/>
+                                                                    <rect key="frame" x="148" y="31" width="207" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9G-Lv-wM6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                                             <state key="normal" title="Button">
                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
@@ -431,7 +431,6 @@
                             <constraint firstItem="19s-jH-Bas" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bUM-Hq-7dM"/>
                             <constraint firstItem="19s-jH-Bas" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cS8-wp-3bE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5Lu-8T-QRS" secondAttribute="bottom" id="i2A-ZB-hVE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="19s-jH-Bas" secondAttribute="top" constant="64" id="oUw-Wh-HeJ"/>
                             <constraint firstItem="19s-jH-Bas" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="u4Q-QW-hiJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

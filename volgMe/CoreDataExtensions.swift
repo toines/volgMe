@@ -125,6 +125,15 @@ func zoekAdressenZonderLocatieKlaar()->Bool
     return false
 }
 
+func fetchAdressen(containing : String)-> [Adres] {
+    var gevonden:[Adres] = []
+    do {let request: NSFetchRequest = Adres.fetchRequest()
+    request.predicate = NSPredicate(format: "ANY naam CONTAINS[c] %@", containing)
+        gevonden = try context.fetch(request)} catch let error {ErrMsg("foutje fetchNearestAdres .\(error.localizedDescription)",.error,#function)}
+
+    return gevonden
+}
+
 func fetchNearestAdres(latitude:Double,longitude:Double,distance:Double)->Adres? //return 1 adres
 {
     let maxDelta = 0.002
