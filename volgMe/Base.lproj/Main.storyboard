@@ -218,7 +218,7 @@
                                             <outlet property="straat" destination="rvB-1G-0gn" id="FZ4-Xb-NSA"/>
                                             <outlet property="tot" destination="SXc-SD-CUG" id="nbY-Yu-eZB"/>
                                             <outlet property="van" destination="beq-1t-IGZ" id="ISK-ZZ-4fC"/>
-                                            <segue destination="wGG-VS-vcT" kind="show" id="5Kx-mL-XwL"/>
+                                            <segue destination="wGG-VS-vcT" kind="show" identifier="bewerkAdres" id="5Kx-mL-XwL"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="gevonden" rowHeight="90" id="px0-SX-IKp" customClass="SearchTableViewCell" customModule="volgMe" customModuleProvider="target">
@@ -348,7 +348,7 @@
                                             <outlet property="straat" destination="hb9-hB-Bwj" id="utR-G5-YKI"/>
                                             <outlet property="vanTot" destination="6Um-OB-8Xm" id="Qgp-q1-32c"/>
                                             <outlet property="vlag" destination="Gwl-st-tra" id="Ihw-Ec-imM"/>
-                                            <segue destination="wGG-VS-vcT" kind="show" id="eXf-rN-INc"/>
+                                            <segue destination="wGG-VS-vcT" kind="show" identifier="bewerkAdres" id="eXf-rN-INc"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="aantalGevonden" rowHeight="30" id="uxK-7I-hc7" customClass="searchHeaderViewCell" customModule="volgMe" customModuleProvider="target">
@@ -513,11 +513,6 @@
                                     <constraint firstItem="6Ry-Ph-1Ha" firstAttribute="height" secondItem="JMU-mi-Xum" secondAttribute="height" id="zp5-sO-UmI"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3Y-0H-5Dh">
-                                <rect key="frame" x="297" y="19" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Safe"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -530,6 +525,18 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="icoon" destination="F66-al-mDD" id="OXn-Ge-sRd"/>
+                        <outlet property="landCode" destination="HPN-i1-US8" id="fY1-pJ-m8f"/>
+                        <outlet property="latitude" destination="Ya8-ec-3hX" id="37b-38-09u"/>
+                        <outlet property="longitude" destination="o4v-mt-DxY" id="Hrf-te-tGR"/>
+                        <outlet property="naam" destination="q6G-nq-2uS" id="5HN-Fs-dZN"/>
+                        <outlet property="plaats" destination="wmq-Zn-KJQ" id="CGW-AI-I4Q"/>
+                        <outlet property="postcode" destination="FUW-fa-SZw" id="AiA-de-J6D"/>
+                        <outlet property="provincie" destination="JMU-mi-Xum" id="mjA-QS-lLF"/>
+                        <outlet property="soortPlaats" destination="mfT-EC-rkZ" id="AI4-mr-6GT"/>
+                        <outlet property="straatHuisnummer" destination="QQz-yx-liC" id="L0j-Hy-ieW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGX-N4-wtg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -560,6 +567,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eXf-rN-INc"/>
+        <segue reference="5Kx-mL-XwL"/>
     </inferredMetricsTieBreakers>
 </document>

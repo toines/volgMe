@@ -16,8 +16,6 @@ class LogBoekVC: UIViewController {
     
     
     @IBOutlet var tableViewDatum: UITableView!
-    @IBOutlet var kaart: MKMapView!
-    @IBOutlet var knoppenView: UIStackView!
     let searchController = UISearchController(searchResultsController: nil)
     var zoekende = false
 

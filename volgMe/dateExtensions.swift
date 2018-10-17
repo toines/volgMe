@@ -59,6 +59,8 @@ extension Date
     var dd_MM_yyyy_HH_mm : String {get {return self.dateToFormattedString("dd MM yyyy HH:mm")}}
     var dd_MMM_yyyy_HH_mm : String {get {return self.dateToFormattedString("dd MMM yyyy HH:mm")}}
     var d_MMMM_yyyy : String {get {return self.dateToFormattedString("d MMMM yyyy")}}
+    var d_MMM_yyyy : String {get {return self.dateToFormattedString("d MMM yyyy")}}
+    var d_M_yyyy : String {get {return self.dateToFormattedString("d-M-yyyy")}}
     var yyMMddHHmm : String {get {return self.dateToFormattedString("yyMMddHHmm")}}
     var dd_MM : String {get {return self.dateToFormattedString("dd-MM")}}
     var dd_MMM : String {get {return self.dateToFormattedString("dd-MMM")}}

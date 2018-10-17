@@ -75,6 +75,7 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
     func vulZoekCell(cell:SearchTableViewCell,datum:Date_70){
         if let x = fetchBezoek(datum: datum) {
             cell.vanTot.text = "\(x.arrivalDate.hh_mm())-\(x.departureDate.hh_mm())"
+            cell.datum.text = "\(datum.date.d_M_yyyy)"
             if let y = x.metAdres
             {
                 cell.stad.text = y.stad
@@ -123,36 +124,18 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //        if editingStyle == .delete {
-    //            let context = fetchedResultsController.managedObjectContext
-    //            context.delete(fetchedResultsController.object(at: indexPath))
-    //
-    //            do {
-    //                try context.save()
-    //            } catch {
-    //                // Replace this implementation with code to handle the error appropriately.
-    //                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-    //                let nserror = error as NSError
-    //                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-    //            }
-    //        }
-    //    }
-    //
-    //    func configureCell(_ cell: UITableViewCell, withEvent event: Event) {
-    //        cell.textLabel!.text = event.timestamp!.description
-    //    }
     
 }
 
 func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "showDetail" {
+    if segue.identifier == "bewerkAdres" {
         //           if let indexPath = tableView.indexPathForSelectedRow {
         //                let object = fetchedResultsController.object(at: indexPath)
         let controller = (segue.destination as! UINavigationController).topViewController as! AdresVC
         //               controller.detailItem = object
         //               controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         controller.navigationItem.leftItemsSupplementBackButton = true
+        controller.datum = 0
         //            }
     }
 }
