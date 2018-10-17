@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF27D9AA21766AA500B35197 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */; };
 		CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */; };
 		CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */; };
 		CF594DD62160ECD700D04356 /* algemeneFuncties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF594DD52160ECD700D04356 /* algemeneFuncties.swift */; };
@@ -20,6 +21,7 @@
 		CF811297216E2D7300DB10EE /* maandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF811296216E2D7300DB10EE /* maandTableViewCell.swift */; };
 		CF811299216E2D8B00DB10EE /* dagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF811298216E2D8B00DB10EE /* dagTableViewCell.swift */; };
 		CF81129B216E2DA900DB10EE /* visiteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF81129A216E2DA900DB10EE /* visiteTableViewCell.swift */; };
+		CF93AA2C21773F56001E96C5 /* searchHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF93AA2B21773F56001E96C5 /* searchHeaderViewCell.swift */; };
 		CFE466C82158F9A600179A69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE466C72158F9A600179A69 /* AppDelegate.swift */; };
 		CFE466CD2158F9A600179A69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE466CB2158F9A600179A69 /* Main.storyboard */; };
 		CFE466D02158F9A600179A69 /* volgMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFE466CE2158F9A600179A69 /* volgMe.xcdatamodeld */; };
@@ -32,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
 		CF594DD52160ECD700D04356 /* algemeneFuncties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = algemeneFuncties.swift; sourceTree = "<group>"; };
@@ -45,6 +48,7 @@
 		CF811296216E2D7300DB10EE /* maandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maandTableViewCell.swift; sourceTree = "<group>"; };
 		CF811298216E2D8B00DB10EE /* dagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dagTableViewCell.swift; sourceTree = "<group>"; };
 		CF81129A216E2DA900DB10EE /* visiteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visiteTableViewCell.swift; sourceTree = "<group>"; };
+		CF93AA2B21773F56001E96C5 /* searchHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchHeaderViewCell.swift; sourceTree = "<group>"; };
 		CFE466C42158F9A600179A69 /* volgMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = volgMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE466C72158F9A600179A69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFE466CC2158F9A600179A69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				CF66485721596390003B58A0 /* LocationManagerExtensions.swift */,
 				CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */,
 				CF663AF72168F18F00694C97 /* SearchExtensions.swift */,
+				CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */,
+				CF93AA2B21773F56001E96C5 /* searchHeaderViewCell.swift */,
 				CFE467042158FD1900179A69 /* TableViewExtensions.swift */,
 				CF811296216E2D7300DB10EE /* maandTableViewCell.swift */,
 				CF811298216E2D8B00DB10EE /* dagTableViewCell.swift */,
@@ -214,6 +220,7 @@
 				CFE466C82158F9A600179A69 /* AppDelegate.swift in Sources */,
 				CF66485821596390003B58A0 /* LocationManagerExtensions.swift in Sources */,
 				CF81129B216E2DA900DB10EE /* visiteTableViewCell.swift in Sources */,
+				CF27D9AA21766AA500B35197 /* SearchTableViewCell.swift in Sources */,
 				CF594DD62160ECD700D04356 /* algemeneFuncties.swift in Sources */,
 				CFE466E02158FC2000179A69 /* LogBoekVC.swift in Sources */,
 				CFE466D02158F9A600179A69 /* volgMe.xcdatamodeld in Sources */,
@@ -222,6 +229,7 @@
 				CFE467052158FD1900179A69 /* TableViewExtensions.swift in Sources */,
 				CF811297216E2D7300DB10EE /* maandTableViewCell.swift in Sources */,
 				CFE4D228215A600E005A4507 /* JsonExtensions.swift in Sources */,
+				CF93AA2C21773F56001E96C5 /* searchHeaderViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -128,7 +128,7 @@ func zoekAdressenZonderLocatieKlaar()->Bool
 func fetchAdressen(containing : String)-> [Adres] {
     var gevonden:[Adres] = []
     do {let request: NSFetchRequest = Adres.fetchRequest()
-    request.predicate = NSPredicate(format: "ANY naam CONTAINS[c] %@", containing)
+    request.predicate = NSPredicate(format: "ANY naam CONTAINS[c] %@ OR ANY straatHuisnummer CONTAINS[c] %@OR ANY  stad CONTAINS[c] %@", containing,containing,containing)
         gevonden = try context.fetch(request)} catch let error {ErrMsg("foutje fetchNearestAdres .\(error.localizedDescription)",.error,#function)}
 
     return gevonden
@@ -192,7 +192,7 @@ func checkAdressenZonderLocatie(){
             //  update UI here
             adres!.coordinate = (placemark.location?.coordinate ?? nil)!
             adres!.landcode = (placemark.isoCountryCode ?? "")
-            adres!.straatHuisnummer = (placemark.thoroughfare ?? "") + (placemark.subThoroughfare ?? "")
+            adres!.straatHuisnummer = (placemark.thoroughfare ?? "") + " " + (placemark.subThoroughfare ?? "")
             adres!.postcode = placemark.postalCode
             adres!.stad = placemark.locality
             adres!.soortPlaats = "Kennis"

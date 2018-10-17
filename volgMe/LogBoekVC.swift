@@ -19,6 +19,8 @@ class LogBoekVC: UIViewController {
     @IBOutlet var kaart: MKMapView!
     @IBOutlet var knoppenView: UIStackView!
     let searchController = UISearchController(searchResultsController: nil)
+    var zoekende = false
+
 
     
     override func viewDidLoad() {
@@ -31,7 +33,6 @@ class LogBoekVC: UIViewController {
         if !(tabelData != nil) {tabelData = CellGevens()}
         tabelData?.expandMaanden()
         print ("---")
-        print (tabelData?.kalender  ?? "")
         initiateSearchBar()
         vraagToestemmingVoorNotifications()
         checkForBackgroundForeground()

@@ -19,28 +19,35 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return tabelData?.kalender.count ?? 0
+        if zoekende {return 1} else {return tabelData?.dagTabel.count ?? 0}
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print ("tabelData?.kalender.count : \(tabelData?.kalender.count ?? 0) ?? 0")
+        if zoekende {return tabelData?.zoekResultaten.count ?? 0} else {
         if let x = tabelData {
-            if let y = x.datumDictionary[x.kalender[section]] {
-                if y.getoond {return y.datums.count}}}
-            
-    
+            if let y = x.dagTabel[x.dagTabel.keys.sorted()[section]]
+            {
+            return y.count
+            }
+        }
             return 0
+        }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let info = tabelData!.kalender[section]
+        if zoekende {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "aantalGevonden",for: IndexPath(row: 0, section: section)) as! searchHeaderViewCell
+            cell.textVeld.text = "\(tabelData?.zoekResultaten.count ?? 0) resultaten gevonden"
+            return cell
+        }
+//        let info = tabelData!.kalender[section]
+          let info = tabelData!.dagTabel.keys.sorted()[section]
                 var id = ""
                 switch info.count {
                 case 6 : id = "maand"
                 case 8: id = "dag"
                 default: id = "visite"
                 }
-        ErrMsg("section:\(section) datum:\(info)", .debug, #function)
+//        ErrMsg("section:\(section) datum:\(info)", .debug, #function)
         let cell = tableView.dequeueReusableCell(withIdentifier: id,for: IndexPath(row: 0, section: section))
                 switch id {
                 case "maand": vulMaandCell(cell: cell as! maandTableViewCell, maand: info)
@@ -50,23 +57,34 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
         return cell
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let info = tabelData!.kalender[indexPath.row]
-//        var id = ""
-//        switch info.0.count {
-//        case 6 : id = "maand"
-//        case 8: id = "dag"
-//        default: id = "visite"
-//        }
+        if zoekende {
+           let cell = tableView.dequeueReusableCell(withIdentifier: "gevonden", for: indexPath)
+            if let x = tabelData {
+                vulZoekCell(cell: cell as! SearchTableViewCell,datum: x.zoekResultaten.sorted()[indexPath.row])
+            }
+           return cell
+        } else {
         let cell = tableView.dequeueReusableCell(withIdentifier: "visite", for: indexPath)
-//        switch id {
-//        case "maand": vulMaandCell(cell: cell as! maandTableViewCell, maand: info.0)
-//        case "dag": vulDagCell(cell: cell as! dagTableViewCell, dag: info.0)
-        if let x = tabelData {
-            if let y = x.datumDictionary[x.kalender[indexPath.section]] {
-                vulVisiteCell(cell: cell as! visiteTableViewCell, forDatum:y.datums[indexPath.row],visite :x.kalender[indexPath.section])}
-        }
+        if let  x = tabelData {
+            let y = (tabelData!.dagTabel.keys.sorted()[indexPath.section])
+            let z = tabelData!.dagTabel[y]
+            vulVisiteCell(cell: cell as! visiteTableViewCell, forDatum:z![indexPath.row],visite :x.dagTabel.keys.sorted()[indexPath.section])}
         if (indexPath.row % 2) == 1 {cell.backgroundColor = UIColor(red: 0, green: 0.8, blue: 0.5, alpha: 1)} else {cell.backgroundColor = UIColor(red: 0, green: 0.8, blue: 0.6, alpha: 1)}
-        return cell
+            return cell}
+    }
+    func vulZoekCell(cell:SearchTableViewCell,datum:Date_70){
+        if let x = fetchBezoek(datum: datum) {
+            cell.vanTot.text = "\(x.arrivalDate.hh_mm())-\(x.departureDate.hh_mm())"
+            if let y = x.metAdres
+            {
+                cell.stad.text = y.stad
+                cell.naam.text = y.naam
+                cell.provincie.text = y.provincie
+                cell.postcode.text = y.postcode
+                cell.straat.text = y.straatHuisnummer
+                cell.vlag.text = landCodeToFlag(landcode: y.landcode ?? "")
+            }
+        }
     }
     func vulMaandCell(cell:maandTableViewCell ,maand:String){
         var x = ""
@@ -127,10 +145,12 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
     
 }
 
+
 class CellGevens {
 //    var kalender = [(String,Date_70)]()
     var dagTabel = [String:[Date_70]]()
-    var kalender = [String]()
+    var zoekResultaten = [Date_70]()
+//    var kalender = [String]()
      struct dictData{
         var getoond = false
         var bijgewerkt = false
@@ -148,22 +168,22 @@ class CellGevens {
 //        kalender = sortKalender(kalender.filter{$0.0.count < 9 || $0.0.prefix(8) != dag})
 //    }
     func collapseDagenVoor(maand:String){
-        let x = kalender.filter{$0.count == 8 && $0.prefix(6) == maand}
-        for dag in x {
-          var y = datumDictionary[dag]
-            y?.getoond = false
-          datumDictionary[dag] = y  // oud
-          
-        }
-        kalender = kalender.filter{$0.count < 7 || $0.prefix(6) != maand} //oud
+//        let x = kalender.filter{$0.count == 8 && $0.prefix(6) == maand}
+//        for dag in x {
+//          var y = datumDictionary[dag]
+//            y?.getoond = false
+//          datumDictionary[dag] = y  // oud
+//
+//        }
+//        kalender = kalender.filter{$0.count < 7 || $0.prefix(6) != maand} //oud
         
         dagTabel = dagTabel.filter{$0.key.count < 7 || $0.key.prefix(6) != maand}
         
     }
     func handleVisitesVoor(dag:String) {
-        var x = datumDictionary[dag]     //oud
-        if let y = x?.getoond {x?.getoond = !y}     //oud
-        datumDictionary[dag] = x     //oud
+//        var x = datumDictionary[dag]     //oud
+//        if let y = x?.getoond {x?.getoond = !y}     //oud
+//        datumDictionary[dag] = x     //oud
         
         if let x = dagTabel[dag] {
             if x.count > 0 {dagTabel[dag] = [Date_70]()} else {dagTabel[dag] = datumDictionary[dag]?.datums}
@@ -175,21 +195,21 @@ class CellGevens {
 //        cellData = (datumDictionary.filter{$0.value.getoond == true}).keys.sorted()
 //    }
     func expandMaanden() {
-        let x = (datumDictionary.filter{$0.key.count == 6}).keys.sorted()  // oud
-        kalender = x   // oud
+//        let x = (datumDictionary.filter{$0.key.count == 6}).keys.sorted()  // oud
+//        kalender = x   // oud
         
         let y = (datumDictionary.filter{$0.key.count == 6}).keys
         for z in y {dagTabel[z] = [Date_70]()}
     }
     func expandDagenVoor(maand:String) {
-        kalender = (kalender + (datumDictionary.filter{$0.key.count == 8  && $0.key.prefix(6) == maand}).keys).sorted()  // oud
+//        kalender = (kalender + (datumDictionary.filter{$0.key.count == 8  && $0.key.prefix(6) == maand}).keys).sorted()  // oud
         
         let y = (datumDictionary.filter{$0.key.count == 8  && $0.key.prefix(6) == maand}).keys
         for z in y {dagTabel[z] = [Date_70]()}
     }
         
     func handleDagenVoor(maand:String) {
-        if ((kalender.filter{$0.prefix(6) == maand}).count) == 1 {expandDagenVoor(maand: maand)}
+        if ((dagTabel.filter{$0.key.prefix(6) == maand}).count) == 1 {expandDagenVoor(maand: maand)}
         else {collapseDagenVoor(maand: maand)}
     }
 

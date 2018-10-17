@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 extension LogBoekVC: UISearchResultsUpdating {
- 
+    
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
         // TODO
@@ -29,25 +29,51 @@ extension LogBoekVC: UISearchResultsUpdating {
         // Returns true if the text is empty or nil
         return searchController.searchBar.text?.isEmpty ?? true
     }
-
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+//        // Stop doing the search stuff
+//        // and clear the text in the search bar
+//        searchBar.text = ""
+//        // Hide the cancel button
+//        searchBar.showsCancelButton = false
+//        // You could also change the position, frame etc of the searchBar
+     zoekende = false
+        tableViewDatum.reloadData()
+    }
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        if searchText.count < 2 {return}
+        if searchText.count < 2 {zoekende = false
+            tableViewDatum.reloadData()
+            return
+        }
         let adressen = fetchAdressen(containing: searchText)
-        if let x = tabelData?.kalender
+        if let x = tabelData
         {
-        var kalenderSet = Set(x)
+            x.zoekResultaten = [Date_70]()
             for adres in adressen {if (adres.bezocht?.count)! > 0
-        {
-            for datum in Array(adres.bezocht!) as! [Bezoek] {
-                kalenderSet.insert(datum.arrival_1970.date.yyyyMM)
-                kalenderSet.insert(datum.arrival_1970.date.yyyyMMdd)
+            {
+                for bezoek in Array(adres.bezocht!) as! [Bezoek] {
+                    x.zoekResultaten.append(bezoek.arrival_1970)
+                    zoekende = true
+                }
+                }
             }
-            }
-            }
+            //        var sSet = Set(x) // oud
+            //            x.dagTabel = x.dagTabel.filter{$0.key.count < 7}
+            //            for adres in adressen {if (adres.bezocht?.count)! > 0
+            //        {
+            //            print ("\(adres.naam ?? "niks")")
+            //            for datum in Array(adres.bezocht!) as! [Bezoek] {
+            //                tabelData?.dagTabel[datum.arrival_1970.date.yyyyMM] = [Date_70]()
+            //                if let y = tabelData?.dagTabel[datum.arrival_1970.date.yyyyMMdd] {
+            //                tabelData?.dagTabel[datum.arrival_1970.date.yyyyMMdd] = y + [datum.arrival_1970]
+            //                } else
+            //                {tabelData?.dagTabel[datum.arrival_1970.date.yyyyMMdd] = [datum.arrival_1970]}
+            //            }
+            //            }
         }
         tableViewDatum.reloadData()
     }
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
+    
 }

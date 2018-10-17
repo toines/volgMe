@@ -26,4 +26,13 @@ func ErrMsg(_ titel:String,_ fout:soortFout,_ function:String){
     case .debug :print (function + "..debug: " + titel)
     default: print (function + "..ERROR: " + titel) }
 }
+func landCodeToFlag(landcode:String)->String
+{
+    var rt = ""
+    for x in landcode.unicodeScalars
+    {
+        rt +=  String (Character(UnicodeScalar(127397 + x.value)!))
+    }
+    return rt
+}
 
