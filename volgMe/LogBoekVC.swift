@@ -51,6 +51,7 @@ class LogBoekVC: UIViewController {
     */
 
 }
+
 @IBDesignable
 class StackView: UIStackView {
     @IBInspectable private var color: UIColor?
@@ -73,4 +74,6 @@ class StackView: UIStackView {
         backgroundLayer.path = UIBezierPath(rect: self.bounds).cgPath
         backgroundLayer.fillColor = self.backgroundColor?.cgColor
     }
+
+
 }

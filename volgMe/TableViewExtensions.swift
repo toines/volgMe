@@ -79,7 +79,7 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
             {
                 cell.stad.text = y.stad
                 cell.naam.text = y.naam
-                cell.provincie.text = y.provincie
+ //               cell.provincie.text = y.provincie
                 cell.postcode.text = y.postcode
                 cell.straat.text = y.straatHuisnummer
                 cell.vlag.text = landCodeToFlag(landcode: y.landcode ?? "")
@@ -143,6 +143,18 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
     //        cell.textLabel!.text = event.timestamp!.description
     //    }
     
+}
+
+func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showDetail" {
+        //           if let indexPath = tableView.indexPathForSelectedRow {
+        //                let object = fetchedResultsController.object(at: indexPath)
+        let controller = (segue.destination as! UINavigationController).topViewController as! AdresVC
+        //               controller.detailItem = object
+        //               controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        controller.navigationItem.leftItemsSupplementBackButton = true
+        //            }
+    }
 }
 
 

@@ -22,6 +22,7 @@
 		CF811299216E2D8B00DB10EE /* dagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF811298216E2D8B00DB10EE /* dagTableViewCell.swift */; };
 		CF81129B216E2DA900DB10EE /* visiteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF81129A216E2DA900DB10EE /* visiteTableViewCell.swift */; };
 		CF93AA2C21773F56001E96C5 /* searchHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF93AA2B21773F56001E96C5 /* searchHeaderViewCell.swift */; };
+		CF93AA2E21776AEB001E96C5 /* AdresVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF93AA2D21776AEB001E96C5 /* AdresVC.swift */; };
 		CFE466C82158F9A600179A69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE466C72158F9A600179A69 /* AppDelegate.swift */; };
 		CFE466CD2158F9A600179A69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE466CB2158F9A600179A69 /* Main.storyboard */; };
 		CFE466D02158F9A600179A69 /* volgMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFE466CE2158F9A600179A69 /* volgMe.xcdatamodeld */; };
@@ -49,6 +50,7 @@
 		CF811298216E2D8B00DB10EE /* dagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dagTableViewCell.swift; sourceTree = "<group>"; };
 		CF81129A216E2DA900DB10EE /* visiteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visiteTableViewCell.swift; sourceTree = "<group>"; };
 		CF93AA2B21773F56001E96C5 /* searchHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchHeaderViewCell.swift; sourceTree = "<group>"; };
+		CF93AA2D21776AEB001E96C5 /* AdresVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdresVC.swift; sourceTree = "<group>"; };
 		CFE466C42158F9A600179A69 /* volgMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = volgMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE466C72158F9A600179A69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFE466CC2158F9A600179A69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				CFE466C72158F9A600179A69 /* AppDelegate.swift */,
 				CFE466DF2158FC2000179A69 /* LogBoekVC.swift */,
+				CF93AA2D21776AEB001E96C5 /* AdresVC.swift */,
 				CF65D6DC216F45DC00C8C8E1 /* UserNotifications.swift */,
 				CF594DD52160ECD700D04356 /* algemeneFuncties.swift */,
 				CF664859215967F6003B58A0 /* ContactsExtension.swift */,
@@ -221,6 +224,7 @@
 				CF66485821596390003B58A0 /* LocationManagerExtensions.swift in Sources */,
 				CF81129B216E2DA900DB10EE /* visiteTableViewCell.swift in Sources */,
 				CF27D9AA21766AA500B35197 /* SearchTableViewCell.swift in Sources */,
+				CF93AA2E21776AEB001E96C5 /* AdresVC.swift in Sources */,
 				CF594DD62160ECD700D04356 /* algemeneFuncties.swift in Sources */,
 				CFE466E02158FC2000179A69 /* LogBoekVC.swift in Sources */,
 				CFE466D02158F9A600179A69 /* volgMe.xcdatamodeld in Sources */,
