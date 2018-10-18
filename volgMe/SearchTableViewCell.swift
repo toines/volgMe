@@ -17,7 +17,7 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet var naam: UILabel!
     @IBOutlet var vlag: UILabel!
     @IBOutlet var postcode: UILabel!
-    
+    var selectedDate = Date_70()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,6 +27,24 @@ class SearchTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    func vulZoekCell(datum:Date_70){
+        if let x = fetchBezoek(datum: datum) {
+            selectedDate = datum
+            vanTot.text = "\(x.arrivalDate.hh_mm())-\(x.departureDate.hh_mm())"
+            self.datum.text = "\(datum.date.d_M_yyyy)"
+            if let y = x.metAdres
+            {
+                stad.text = y.stad
+                naam.text = y.naam
+                //               cell.provincie.text = y.provincie
+                postcode.text = y.postcode
+                straat.text = y.straatHuisnummer
+                vlag.text = landCodeToFlag(landcode: y.landcode ?? "")
+            }
+        }
     }
 
 }

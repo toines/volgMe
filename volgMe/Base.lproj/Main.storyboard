@@ -218,7 +218,7 @@
                                             <outlet property="straat" destination="rvB-1G-0gn" id="FZ4-Xb-NSA"/>
                                             <outlet property="tot" destination="SXc-SD-CUG" id="nbY-Yu-eZB"/>
                                             <outlet property="van" destination="beq-1t-IGZ" id="ISK-ZZ-4fC"/>
-                                            <segue destination="wGG-VS-vcT" kind="show" identifier="bewerkAdres" id="5Kx-mL-XwL"/>
+                                            <segue destination="wGG-VS-vcT" kind="show" identifier="bewerkAdres" id="BEm-7T-wQi"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="gevonden" rowHeight="90" id="px0-SX-IKp" customClass="SearchTableViewCell" customModule="volgMe" customModuleProvider="target">
@@ -348,7 +348,7 @@
                                             <outlet property="straat" destination="hb9-hB-Bwj" id="utR-G5-YKI"/>
                                             <outlet property="vanTot" destination="6Um-OB-8Xm" id="Qgp-q1-32c"/>
                                             <outlet property="vlag" destination="Gwl-st-tra" id="Ihw-Ec-imM"/>
-                                            <segue destination="wGG-VS-vcT" kind="show" identifier="bewerkAdres" id="eXf-rN-INc"/>
+                                            <segue destination="wGG-VS-vcT" kind="show" identifier="bewerkAdres" id="fJ1-J2-OEJ"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="aantalGevonden" rowHeight="30" id="uxK-7I-hc7" customClass="searchHeaderViewCell" customModule="volgMe" customModuleProvider="target">
@@ -567,6 +567,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5Kx-mL-XwL"/>
+        <segue reference="BEm-7T-wQi"/>
     </inferredMetricsTieBreakers>
 </document>

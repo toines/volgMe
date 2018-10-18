@@ -47,31 +47,20 @@ class LogBoekVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-}
-
-@IBDesignable
-class StackView: UIStackView {
-    @IBInspectable private var color: UIColor?
-    override var backgroundColor: UIColor? {
-        get { return color }
-        set {
-            color = newValue
-            self.setNeedsLayout() // EDIT 2017-02-03 thank you @BruceLiu
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var selectedDate = Date_70()
+        if segue.identifier == "bewerkAdres" {
+            if let x = sender as? SearchTableViewCell {
+                selectedDate = x.selectedDate} else {
+                if let x = sender as? visiteTableViewCell {
+                selectedDate = x.selectedDate}
+            }
+            let controller = segue.destination as! AdresVC
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            controller.datum = selectedDate
+            //            }
         }
     }
-    
-    private lazy var backgroundLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        self.layer.insertSublayer(layer, at: 0)
-        return layer
-    }()
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        backgroundLayer.path = UIBezierPath(rect: self.bounds).cgPath
-        backgroundLayer.fillColor = self.backgroundColor?.cgColor
-    }
-
 
 }
+

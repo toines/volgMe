@@ -58,35 +58,22 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if zoekende {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "gevonden", for: indexPath)
+           let cell = tableView.dequeueReusableCell(withIdentifier: "gevonden", for: indexPath)  as! SearchTableViewCell
             if let x = tabelData {
-                vulZoekCell(cell: cell as! SearchTableViewCell,datum: x.zoekResultaten.sorted()[indexPath.row])
+                cell.vulZoekCell(datum: x.zoekResultaten.sorted()[indexPath.row])
             }
            return cell
         } else {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "visite", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "visite", for: indexPath) as! visiteTableViewCell
         if let  x = tabelData {
             let y = (tabelData!.dagTabel.keys.sorted()[indexPath.section])
             let z = tabelData!.dagTabel[y]
-            vulVisiteCell(cell: cell as! visiteTableViewCell, forDatum:z![indexPath.row],visite :x.dagTabel.keys.sorted()[indexPath.section])}
+            cell.vulVisiteCell(forDatum:z![indexPath.row],visite :x.dagTabel.keys.sorted()[indexPath.section])}
         if (indexPath.row % 2) == 1 {cell.backgroundColor = UIColor(red: 0, green: 0.8, blue: 0.5, alpha: 1)} else {cell.backgroundColor = UIColor(red: 0, green: 0.8, blue: 0.6, alpha: 1)}
             return cell}
     }
-    func vulZoekCell(cell:SearchTableViewCell,datum:Date_70){
-        if let x = fetchBezoek(datum: datum) {
-            cell.vanTot.text = "\(x.arrivalDate.hh_mm())-\(x.departureDate.hh_mm())"
-            cell.datum.text = "\(datum.date.d_M_yyyy)"
-            if let y = x.metAdres
-            {
-                cell.stad.text = y.stad
-                cell.naam.text = y.naam
- //               cell.provincie.text = y.provincie
-                cell.postcode.text = y.postcode
-                cell.straat.text = y.straatHuisnummer
-                cell.vlag.text = landCodeToFlag(landcode: y.landcode ?? "")
-            }
-        }
-    }
+    
+
     func vulMaandCell(cell:maandTableViewCell ,maand:String){
         var x = ""
         for plaats in tabelData?.datumDictionary[maand]?.plaatsen ?? Set<String>() {x = x + "\(plaats) " }
@@ -105,21 +92,6 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
         cell.knop.setTitle(dag, for: .normal)
 //        cell.dag.text = dag.toDate().EEEE()
     }
-    func vulVisiteCell(cell:visiteTableViewCell, forDatum : Date_70,visite: String)
-    {
-        if let x = fetchBezoek(datum: forDatum) {
-            if x.arrivalDate.dd == visite.suffix(2) {cell.van.text = x.arrivalDate.hh_mm()} else {cell.van.text = "....."}
-            if x.departureDate.dd == visite.suffix(2) {cell.tot.text = x.departureDate.hh_mm()} else {cell.tot.text = "....."}
-            if let y = x.metAdres
-            {
-            cell.stad.text = y.stad
-                cell.naam.text = y.naam
-                cell.straat.text = y.straatHuisnummer
-            }
-//            cell.datum.text = forDatum.date.ddMMM
-        }
-        
-    }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
@@ -127,18 +99,7 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
     
 }
 
-func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "bewerkAdres" {
-        //           if let indexPath = tableView.indexPathForSelectedRow {
-        //                let object = fetchedResultsController.object(at: indexPath)
-        let controller = (segue.destination as! UINavigationController).topViewController as! AdresVC
-        //               controller.detailItem = object
-        //               controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-        controller.navigationItem.leftItemsSupplementBackButton = true
-        controller.datum = 0
-        //            }
-    }
-}
+
 
 
 class CellGevens {
@@ -153,25 +114,9 @@ class CellGevens {
         var datums = [Date_70]()
     }
     var datumDictionary = [String:dictData]()
-//    struct visite {var inhoud = [String]()}
-//    struct dag {var inhoud = [String:visite]()}
-//    var maand = [String:dag]()
- //   var cellData = [String]()
-//    func expandVisitesVoor(dag:String) {
-//        kalender = sortKalender(kalender + datumDictionary[dag]!.datums.map{(dag + "0",$0)})}
-//    func collapseVisitesVoor(dag:String){
-//        kalender = sortKalender(kalender.filter{$0.0.count < 9 || $0.0.prefix(8) != dag})
-//    }
+
     func collapseDagenVoor(maand:String){
-//        let x = kalender.filter{$0.count == 8 && $0.prefix(6) == maand}
-//        for dag in x {
-//          var y = datumDictionary[dag]
-//            y?.getoond = false
-//          datumDictionary[dag] = y  // oud
-//
-//        }
-//        kalender = kalender.filter{$0.count < 7 || $0.prefix(6) != maand} //oud
-        
+       
         dagTabel = dagTabel.filter{$0.key.count < 7 || $0.key.prefix(6) != maand}
         
     }

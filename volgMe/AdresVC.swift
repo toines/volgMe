@@ -24,6 +24,23 @@ class AdresVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let x = datum {
+            if let bezoek = fetchBezoek(datum: x){
+                if let adres = bezoek.metAdres {
+                    naam.text = adres.naam
+                    provincie.text = adres.provincie
+                    straatHuisnummer.text = adres.straatHuisnummer
+                    landCode.text = adres.landcode
+                    postcode.text = adres.postcode
+                    plaats.text = adres.stad
+                    soortPlaats.text = adres.soortPlaats
+                    icoon.text = adres.icon
+                    latitude.text = "lat: \(adres.latitude)"
+                    longitude.text = "long: \(adres.longitude)"
+                }
+
+            }
+        }
 
         // Do any additional setup after loading the view.
     }

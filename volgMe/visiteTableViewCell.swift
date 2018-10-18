@@ -15,6 +15,7 @@ class visiteTableViewCell: UITableViewCell {
     @IBOutlet var stad: UILabel!
     @IBOutlet var naam: UILabel!
     
+    var selectedDate = Date_70()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,5 +26,21 @@ class visiteTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func vulVisiteCell(forDatum : Date_70,visite: String)
+    {
+        selectedDate = forDatum
+        if let x = fetchBezoek(datum: forDatum) {
+            if x.arrivalDate.dd == visite.suffix(2) {van.text = x.arrivalDate.hh_mm()} else {van.text = "....."}
+            if x.departureDate.dd == visite.suffix(2) {tot.text = x.departureDate.hh_mm()} else {tot.text = "....."}
+            if let y = x.metAdres
+            {
+                stad.text = y.stad
+                naam.text = y.naam
+                straat.text = y.straatHuisnummer
+            }
+        }
+        
+    }
+
 
 }
