@@ -48,13 +48,14 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
                 default: id = "visite"
                 }
 //        ErrMsg("section:\(section) datum:\(info)", .debug, #function)
-        let cell = tableView.dequeueReusableCell(withIdentifier: id,for: IndexPath(row: 0, section: section))
                 switch id {
-                case "maand": vulMaandCell(cell: cell as! maandTableViewCell, maand: info)
-                default : vulDagCell(cell: cell as! dagTableViewCell, dag: info)
+                case "maand": let cell = tableView.dequeueReusableCell(withIdentifier: id,for: IndexPath(row: 0, section: section)) as! maandTableViewCell
+                    cell.vulMaandCell(maand: info)
+                    return cell
+                default : let cell = tableView.dequeueReusableCell(withIdentifier: id,for: IndexPath(row: 0, section: section)) as! dagTableViewCell
+                    cell.vulDagCell(dag: info)
+                    return cell
             }
-        
-        return cell
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if zoekende {
@@ -74,33 +75,12 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
     }
     
 
-    func vulMaandCell(cell:maandTableViewCell ,maand:String){
-        var x = ""
-        for plaats in tabelData?.datumDictionary[maand]?.plaatsen ?? Set<String>() {x = x + "\(plaats) " }
-        cell.landen.text = "\(x)"
-        cell.jaar.text = String(maand.prefix(4))
-        cell.maand.text = maand.toDate().MMMM
-        cell.knop.setTitle(maand, for: .normal)
-    }
-    func vulDagCell(cell:dagTableViewCell ,dag:String){
-        var x = ""
-        if let y = tabelData?.datumDictionary[dag]?.plaatsen {
-            for plaats in y {x = x + "\(plaats) " }
-        }
-        cell.stad.text = x
-        cell.datum.text = "\(dag.toDate().EEEE()) : \(dag.toDate().d_MMMM_yyyy)"
-        cell.knop.setTitle(dag, for: .normal)
-//        cell.dag.text = dag.toDate().EEEE()
-    }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
     
 }
-
-
-
 
 class CellGevens {
 //    var kalender = [(String,Date_70)]()

@@ -34,5 +34,16 @@ class dagTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func vulDagCell(dag:String){
+        var x = ""
+        if let y = tabelData?.datumDictionary[dag]?.plaatsen {
+            for plaats in y {x = x + "\(plaats) " }
+        }
+        stad.text = x
+        datum.text = "\(dag.toDate().EEEE()) : \(dag.toDate().d_MMMM_yyyy)"
+        knop.setTitle(dag, for: .normal)
+        //        cell.dag.text = dag.toDate().EEEE()
+    }
+
 
 }

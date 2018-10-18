@@ -29,6 +29,15 @@ class maandTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func vulMaandCell(maand:String){
+        var x = ""
+        for plaats in tabelData?.datumDictionary[maand]?.plaatsen ?? Set<String>() {x = x + "\(plaats) " }
+        landen.text = "\(x)"
+        jaar.text = String(maand.prefix(4))
+        self.maand.text = maand.toDate().MMMM
+        knop.setTitle(maand, for: .normal)
+    }
 
 }
 
