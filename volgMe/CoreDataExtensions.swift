@@ -283,5 +283,17 @@ func checkBezoekenZonderAdres(){
     else {ErrMsg("checkBezoekenZonderAdres afgewerkt", .debug, #function)}
     return
 }
-
-
+//func reFetchArray(key:String)-> [String]{
+//    var tabellenData = [Tabellen(context: context)]
+//       let request:NSFetchRequest = Tabellen.fetchRequest()
+//     request.predicate = NSPredicate(format: "key = %@",key)
+//    do {  tabellenData = try context.fetch(request)
+//    } catch let error {ErrMsg("foutje \(error.localizedDescription)",.debug, #function)}
+//    if tabellenData.count > 0 {
+//    if let decodedArray = NSKeyedUnarchiver.unarchiveObject(with: tabellenData) as? [String]{
+//        return decodedArray as! [String]
+//        }}
+//    return [String]()
+//}
+// let encodedData = NSKeyedArchiver.archivedData(withRootObject: array)
+// if let decodedArray = NSKeyedUnarchiver.unarchiveObject(with: encodedData) as? [Any]

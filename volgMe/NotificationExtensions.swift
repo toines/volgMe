@@ -37,6 +37,8 @@ extension LogBoekVC{
         //    NotificationCenter.default.addObserver(self, selector: #selector(visiteVC.updateKaart),name:NSNotification.Name("MAP"), object: nil)
         //    NotificationCenter.default.addObserver(self, selector: #selector(batteryLevelDidChange), name: .UIDeviceBatteryLevelDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.goDown), name: NSNotification.Name("goDown"), object: nil)
+        NotificationCenter.default.addObserver( self, selector: #selector (self.keyboardWillShow), name : UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
         
     }
     
