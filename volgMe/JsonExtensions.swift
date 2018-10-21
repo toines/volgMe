@@ -65,7 +65,7 @@ func readJson() {
         }
         print (skipVanwegeDatumDeparture + skipVanwegeDatumArrival + "\(bezoek.arrival_1970.date.dd_MM_yyyy_HH_mm)   \(bezoek.departure_1970.date.dd_MM_yyyy_HH_mm)....\(long) - \(lat)     \(dagen)")
         let _ = Bezoek(bezoek)
-        
+        delegate.saveContext()        
         }
     }   catch {print ("Error",error)}
 }

@@ -42,5 +42,5 @@ class visiteTableViewCell: UITableViewCell {
         
     }
 
-
+    
 }

@@ -22,7 +22,10 @@ class AdresVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIText
     @IBOutlet var longitude: UILabel!
     @IBOutlet var bLatitude: UILabel!
     @IBOutlet var bLongitude: UILabel!
+    @IBOutlet var info: UITextView!
     
+    var oldInfo = ""
+    var currentAddress = Adres()
     var changes = false
     var datum: Date_70?
     var visites = [Bezoek(context: context)]
@@ -31,8 +34,9 @@ class AdresVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIText
         super.viewDidLoad()
         naam.delegate = self
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "❮ Dagboek", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back(sender:)))
-        self.navigationItem.leftBarButtonItem = newBackButton
+//
+//        let newBackButton = UIBarButtonItem(title: "❮ Dagboek", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back(sender:)))
+//        self.navigationItem.leftBarButtonItem = newBackButton
 
         straatHuisnummer.delegate = self
         provincie.delegate = self
@@ -47,6 +51,7 @@ class AdresVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIText
         if let x = datum {
             if let bezoek = fetchBezoek(datum: x){
                 if let adres = bezoek.metAdres {
+                    currentAddress = adres
                     naam.text = adres.naam
                     provincie.text = adres.provincie
                     straatHuisnummer.text = adres.straatHuisnummer
@@ -59,6 +64,8 @@ class AdresVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIText
                     longitude.text = "long: \(adres.longitude)"
                     bLatitude.text = "lat: \(bezoek.latitude)"
                     bLongitude.text = "long: \(bezoek.longitude)"
+                    info.text = adres.info ?? ""
+                    oldInfo = adres.info ?? ""
                     if let x = adres.bezocht {
                         visites = (Array(x) as! [Bezoek])
                         visites = visites.sorted{$0.arrival_1970 < $1.arrival_1970}
@@ -72,12 +79,9 @@ class AdresVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIText
     
     override func viewWillDisappear(_ animated: Bool) {
     }
-    @objc func back(sender: UIBarButtonItem) {
-        // Perform your custom actions
-        // ...
-        // Go back to the previous ViewController
-  //      if changes {showAlert()}
-
+    @IBAction func terug(_ sender: Any) {
+        if info.text != oldInfo {changes = true}
+        view.endEditing(true)
         if changes {showAlert()}
         else {_ = self.navigationController?.popViewController(animated: true)}
     }
@@ -94,11 +98,17 @@ class AdresVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIText
                     adres.stad = plaats.text
                     adres.soortPlaats = soortPlaats.text
                     adres.icon = icoon.text
+                    adres.info = info.text
                     delegate.saveContext()
                     NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
                 }
             }
         }
+    }
+    @IBAction func deleteAdress(_ sender: UIBarButtonItem) {
+        context.delete(currentAddress)
+        NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     func showAlert() {
         let alertController = UIAlertController(title: "Text has changed", message: "Do you want to save.", preferredStyle: .alert)

@@ -38,7 +38,7 @@ extension Bezoek{    // datums in database zijn sinds 1970 !!!
         self.coordinate = visite.coordinate
         self.arrivalDate =  visite.arrivalDate
         self.departureDate = visite.departureDate
-        delegate.saveContext()
+//        delegate.saveContext()
     }
     
     convenience init(_ visite:myCLVisit){
@@ -280,7 +280,10 @@ func checkBezoekenZonderAdres(){
             }
         })
     }
-    else {ErrMsg("checkBezoekenZonderAdres afgewerkt", .debug, #function)}
+    else {ErrMsg("checkBezoekenZonderAdres afgewerkt", .debug, #function)
+        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
+    }
+    
     return
 }
 //func reFetchArray(key:String)-> [String]{

@@ -10,6 +10,7 @@
 		CF27D9AA21766AA500B35197 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */; };
 		CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */; };
 		CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */; };
+		CF309636217C85BC00153DCD /* DagInfoUpdateTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309635217C85BC00153DCD /* DagInfoUpdateTVC.swift */; };
 		CF594DD62160ECD700D04356 /* algemeneFuncties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF594DD52160ECD700D04356 /* algemeneFuncties.swift */; };
 		CF5A1C3F215BB335003C12A5 /* visits.json in Resources */ = {isa = PBXBuildFile; fileRef = CF5A1C3E215BB335003C12A5 /* visits.json */; };
 		CF65D6DD216F45DC00C8C8E1 /* UserNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF65D6DC216F45DC00C8C8E1 /* UserNotifications.swift */; };
@@ -40,6 +41,7 @@
 		CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
+		CF309635217C85BC00153DCD /* DagInfoUpdateTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DagInfoUpdateTVC.swift; sourceTree = "<group>"; };
 		CF594DD52160ECD700D04356 /* algemeneFuncties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = algemeneFuncties.swift; sourceTree = "<group>"; };
 		CF5A1C3E215BB335003C12A5 /* visits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visits.json; sourceTree = "<group>"; };
 		CF65D6DC216F45DC00C8C8E1 /* UserNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotifications.swift; sourceTree = "<group>"; };
@@ -103,7 +105,7 @@
 				CFE466C72158F9A600179A69 /* AppDelegate.swift */,
 				CFE466DF2158FC2000179A69 /* LogBoekVC.swift */,
 				CF93AA2D21776AEB001E96C5 /* AdresVC.swift */,
-				CF743A822179EB9D00479982 /* AdresHeaderCell.swift */,
+				CF309635217C85BC00153DCD /* DagInfoUpdateTVC.swift */,
 				CF65D6DC216F45DC00C8C8E1 /* UserNotifications.swift */,
 				CF594DD52160ECD700D04356 /* algemeneFuncties.swift */,
 				CF664859215967F6003B58A0 /* ContactsExtension.swift */,
@@ -113,6 +115,7 @@
 				CF66485721596390003B58A0 /* LocationManagerExtensions.swift */,
 				CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */,
 				CF663AF72168F18F00694C97 /* SearchExtensions.swift */,
+				CF743A822179EB9D00479982 /* AdresHeaderCell.swift */,
 				CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */,
 				CF93AA2B21773F56001E96C5 /* searchHeaderViewCell.swift */,
 				CFE467042158FD1900179A69 /* TableViewExtensions.swift */,
@@ -222,6 +225,7 @@
 			files = (
 				CF66485A215967F6003B58A0 /* ContactsExtension.swift in Sources */,
 				CF66485C21596C13003B58A0 /* dateExtensions.swift in Sources */,
+				CF309636217C85BC00153DCD /* DagInfoUpdateTVC.swift in Sources */,
 				CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */,
 				CF663AF82168F18F00694C97 /* SearchExtensions.swift in Sources */,
 				CF811299216E2D8B00DB10EE /* dagTableViewCell.swift in Sources */,

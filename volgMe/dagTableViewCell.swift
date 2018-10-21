@@ -18,7 +18,9 @@ class dagTableViewCell: UITableViewCell {
         NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
         
     }
-
+    @IBAction func Info(_ sender: Any) {
+    }
+    
     
     @IBOutlet var datum: UILabel!
     @IBOutlet var stad: UILabel!

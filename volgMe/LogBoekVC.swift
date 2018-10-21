@@ -55,20 +55,13 @@ class LogBoekVC: UIViewController {
                 if let x = sender as? visiteTableViewCell {
                 selectedDate = x.selectedDate}
             }
+            view.endEditing(true)
             let controller = segue.destination as! AdresVC
             controller.navigationItem.leftItemsSupplementBackButton = true
             controller.datum = selectedDate
             //            }
         }
     }
-    @objc func keyboardWillShow( note:NSNotification )
-    {
-        // read the CGRect from the notification (if any)
-        if let newFrame = (note.userInfo?[ UIResponder.keyboardFrameEndUserInfoKey ] as? NSValue)?.cgRectValue {
-            let insets = UIEdgeInsets( top: 0, left: 0, bottom: newFrame.height, right: 0 )
-            tableViewDatum.contentInset = insets
-            tableViewDatum.scrollIndicatorInsets = insets
-        }
-    }
+
 }
 
