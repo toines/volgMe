@@ -38,7 +38,7 @@ extension Bezoek{    // datums in database zijn sinds 1970 !!!
         self.coordinate = visite.coordinate
         self.arrivalDate =  visite.arrivalDate
         self.departureDate = visite.departureDate
-//        delegate.saveContext()
+        delegate.saveContext()
     }
     
     convenience init(_ visite:myCLVisit){

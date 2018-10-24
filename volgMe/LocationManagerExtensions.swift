@@ -35,7 +35,7 @@ extension LogBoekVC : CLLocationManagerDelegate{
     }
     func didVisit(_ visit:Bezoek){
         
-        delegate.saveContext()
+//        delegate.saveContext()
 
     }
 }
