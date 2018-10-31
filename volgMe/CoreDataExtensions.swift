@@ -24,7 +24,7 @@ extension Adres : MKAnnotation
     public var subtitle: String? {return stad}
     public var title: String? {return naam}
 }
-extension Bezoek{    // datums in database zijn sinds 1970 !!!
+extension Bezoek:Encodable{    // datums in database zijn sinds 1970 !!!
     var departureDate:Date{get {return Date(timeIntervalSince1970:TimeInterval(self.departure_1970))}
         set {self.departure_1970 = Float(newValue.timeIntervalSince1970)}}
     var arrivalDate:Date{get {return Date(timeIntervalSince1970: TimeInterval(self.arrival_1970))}
@@ -38,29 +38,38 @@ extension Bezoek{    // datums in database zijn sinds 1970 !!!
         self.coordinate = visite.coordinate
         self.arrivalDate =  visite.arrivalDate
         self.departureDate = visite.departureDate
-        delegate.saveContext()
+//        delegate.saveContext()
     }
     
     convenience init(_ visite:myCLVisit){
         self.init(context:context)
-        self.coordinate = CLLocationCoordinate2D(latitude: visite.latitude, longitude: visite.longitude)
+        self.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(visite.latitude), longitude: CLLocationDegrees(visite.longitude))
         self.arrival_1970 =  visite.arrival_1970
         self.departure_1970 = visite.departure_1970
-        delegate.saveContext()
+//        delegate.saveContext()
     }
-}
-extension Bezoek : Encodable {
-    private enum CodingKeys: String, CodingKey { case arrival_1970,departure_1970,info,latitude,longitude}
+    private enum CodingKeys : String, CodingKey {case arr,dep,lat,lon}
+    
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(arrival_1970, forKey: .arrival_1970)
-        try container.encode(departure_1970, forKey: .departure_1970)
-        try container.encode(info, forKey: .info)
-        try container.encode(latitude, forKey: .latitude)
-        try container.encode(longitude, forKey: .longitude)
+        try container.encode(self.arrival_1970, forKey: .arr)
+        try container.encode(self.departure_1970, forKey: .dep)
+        try container.encode(self.latitude, forKey: .lat)
+        try container.encode(self.longitude, forKey: .lon)
     }
-    
 }
+//extension Bezoek : Encodable {
+//    private enum CodingKeys: String, CodingKey { case arrival_1970,departure_1970,info,latitude,longitude}
+//    public func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//        try container.encode(arrival_1970, forKey: .arrival_1970)
+//        try container.encode(departure_1970, forKey: .departure_1970)
+//        try container.encode(info, forKey: .info)
+//        try container.encode(latitude, forKey: .latitude)
+//        try container.encode(longitude, forKey: .longitude)
+//    }
+
+//}
 extension Adres : Encodable {
     private enum CodingKeys: String, CodingKey { case confirmed,info,landcode,latitude,longitude,naam,postcode,provincie,soortPlaats,stad,straatHuisnummer}
     public func encode(to encoder: Encoder) throws {

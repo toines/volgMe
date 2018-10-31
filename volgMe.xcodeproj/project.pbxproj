@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF27D9AA21766AA500B35197 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */; };
+		CF2BE50E21877FA900B81553 /* visitsNew.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2BE50D21877FA900B81553 /* visitsNew.json */; };
 		CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */; };
 		CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */; };
 		CF309636217C85BC00153DCD /* DagInfoUpdateTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309635217C85BC00153DCD /* DagInfoUpdateTVC.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		CF2BE50D21877FA900B81553 /* visitsNew.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visitsNew.json; sourceTree = "<group>"; };
 		CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
 		CF309635217C85BC00153DCD /* DagInfoUpdateTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DagInfoUpdateTVC.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				CFE466D12158F9A800179A69 /* Assets.xcassets */,
 				CFE466D32158F9A800179A69 /* LaunchScreen.storyboard */,
 				CF5A1C3E215BB335003C12A5 /* visits.json */,
+				CF2BE50D21877FA900B81553 /* visitsNew.json */,
 				CFE466D62158F9A800179A69 /* Info.plist */,
 				CFE466CE2158F9A600179A69 /* volgMe.xcdatamodeld */,
 				CFE466C52158F9A600179A69 /* Products */,
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF5A1C3F215BB335003C12A5 /* visits.json in Resources */,
+				CF2BE50E21877FA900B81553 /* visitsNew.json in Resources */,
 				CFE466D52158F9A800179A69 /* LaunchScreen.storyboard in Resources */,
 				CFE466D22158F9A800179A69 /* Assets.xcassets in Resources */,
 				CFE466CD2158F9A600179A69 /* Main.storyboard in Resources */,

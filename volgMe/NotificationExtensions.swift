@@ -13,7 +13,7 @@ import UIKit
     ErrMsg("Foreground", .debug,#function)
     if zoekAdressenZonderLocatieKlaar() {
         NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
-        
+        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
     }
     ErrMsg ("#adressen:\(telAdressen()) #bezoeken:\(telBezoeken())",.debug, #function)
     print("--------- ", #function)
@@ -56,7 +56,7 @@ extension LogBoekVC{
     @objc func keyboardWillHide(notification:NSNotification )
     {
         // read the CGRect from the notification (if any)
-        if let newFrame = (notification.userInfo?[ UIResponder.keyboardFrameEndUserInfoKey ] as? NSValue)?.cgRectValue {
+        if ((notification.userInfo?[ UIResponder.keyboardFrameEndUserInfoKey ] as? NSValue)?.cgRectValue) != nil {
             let insets = UIEdgeInsets( top: 0, left: 0, bottom: 0, right: 0 )
 //            let insets = UIEdgeInsets( top: 0, left: 0, bottom: newFrame.height, right: 0 )
             tableViewDatum.contentInset = insets
