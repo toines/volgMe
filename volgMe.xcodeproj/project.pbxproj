@@ -12,6 +12,7 @@
 		CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */; };
 		CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */; };
 		CF309636217C85BC00153DCD /* DagInfoUpdateTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309635217C85BC00153DCD /* DagInfoUpdateTVC.swift */; };
+		CF479D13218DC9A100B0E188 /* SetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF479D12218DC9A100B0E188 /* SetupVC.swift */; };
 		CF594DD62160ECD700D04356 /* algemeneFuncties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF594DD52160ECD700D04356 /* algemeneFuncties.swift */; };
 		CF5A1C3F215BB335003C12A5 /* visits.json in Resources */ = {isa = PBXBuildFile; fileRef = CF5A1C3E215BB335003C12A5 /* visits.json */; };
 		CF65D6DD216F45DC00C8C8E1 /* UserNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF65D6DC216F45DC00C8C8E1 /* UserNotifications.swift */; };
@@ -44,6 +45,7 @@
 		CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
 		CF309635217C85BC00153DCD /* DagInfoUpdateTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DagInfoUpdateTVC.swift; sourceTree = "<group>"; };
+		CF479D12218DC9A100B0E188 /* SetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupVC.swift; sourceTree = "<group>"; };
 		CF594DD52160ECD700D04356 /* algemeneFuncties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = algemeneFuncties.swift; sourceTree = "<group>"; };
 		CF5A1C3E215BB335003C12A5 /* visits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visits.json; sourceTree = "<group>"; };
 		CF65D6DC216F45DC00C8C8E1 /* UserNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotifications.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		CFE466BB2158F9A600179A69 = {
 			isa = PBXGroup;
 			children = (
+				CF479D12218DC9A100B0E188 /* SetupVC.swift */,
 				CFE466C62158F9A600179A69 /* volgMe */,
 				CFE466DC2158FA6400179A69 /* Frameworks */,
 			);
@@ -245,6 +248,7 @@
 				CFE466E02158FC2000179A69 /* LogBoekVC.swift in Sources */,
 				CFE466D02158F9A600179A69 /* volgMe.xcdatamodeld in Sources */,
 				CF65D6DD216F45DC00C8C8E1 /* UserNotifications.swift in Sources */,
+				CF479D13218DC9A100B0E188 /* SetupVC.swift in Sources */,
 				CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */,
 				CFE467052158FD1900179A69 /* TableViewExtensions.swift in Sources */,
 				CF811297216E2D7300DB10EE /* maandTableViewCell.swift in Sources */,

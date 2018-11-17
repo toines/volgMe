@@ -16,6 +16,7 @@ import CoreLocation
 //===============================================================================================================================
 func clean(_ visites:[myCLVisit])->[myCLVisit]{
     var cleanedTable = [myCLVisit]()
+    if visites.count > 0 {
     var prevVisit = visites[0]
     for visit in visites {
         var goeiePrevVisit = false
@@ -31,6 +32,7 @@ func clean(_ visites:[myCLVisit])->[myCLVisit]{
     }
     cleanedTable.append(prevVisit)
     print ("\(visites.count) after \(cleanedTable.count)")
+    }
     return cleanedTable
 }
 

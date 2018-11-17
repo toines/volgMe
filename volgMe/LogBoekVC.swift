@@ -24,10 +24,10 @@ class LogBoekVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initLocationManager()
-        if geenAdressen(){
-         StoreAllContactsAdresses()
+//        if geenAdressen(){
+//         StoreAllContactsAdresses()
          readJson()  //lees visites uit file
-        }
+//        }
         if !(tabelData != nil) {tabelData = CellGevens()}
         tabelData?.expandMaanden()
         print ("---")
