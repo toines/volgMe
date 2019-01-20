@@ -11,6 +11,11 @@ import UIKit
  func Foreground()
 {
     ErrMsg("Foreground", .debug,#function)
+    if !(tabelData != nil) {
+        tabelData = CellGevens()
+    }
+    tabelData?.expandMaanden()
+
     if zoekAdressenZonderLocatieKlaar() {
         NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
         NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)

@@ -264,7 +264,7 @@ func datums(van:Date_70,totEnMet:Date_70)->[Date_70]{
         z = z.addingTimeInterval(24*60*60)
         if datumTabel.count > 10 {return [Date_70]()}
     }
-    ErrMsg("\(z) ....  \(datumTabel.count)   .... \(abs(van - totEnMet))", .debug, #function)
+//    ErrMsg("\(z) ....  \(datumTabel.count)   .... \(abs(van - totEnMet))", .debug, #function)
     return datumTabel
 }
 func aantalDatums(van:Date_70,totEnMet:Date_70)->Int{

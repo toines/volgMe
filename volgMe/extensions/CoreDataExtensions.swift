@@ -23,7 +23,25 @@ extension Adres : MKAnnotation
     }
     public var subtitle: String? {return stad}
     public var title: String? {return naam}
+    convenience init(_ from:AdresJson)
+    {
+        self.init(context:context)
+        confirmed = from.confirmed
+        icon = from.icon
+        info = from.info
+        landcode = from.landcode
+        latitude = Double( from.latitudeFloat)
+        longitude = Double( from.longitudeFloat)
+        naam = from.naam
+        postcode = from.postcode
+        provincie = from.provincie
+        soortPlaats = from.soortPlaats
+        stad = from.stad
+        straatHuisnummer = from.straat + " " + from.huisnummer
+        
+    }
 }
+
 extension Bezoek:Encodable{    // datums in database zijn sinds 1970 !!!
     var departureDate:Date{get {return Date(timeIntervalSince1970:TimeInterval(self.departure_1970))}
         set {self.departure_1970 = Float(newValue.timeIntervalSince1970)}}
@@ -83,7 +101,36 @@ extension Adres : Encodable {
         try container.encode(soortPlaats, forKey: .soortPlaats)
         try container.encode(stad, forKey: .stad)
         try container.encode(straatHuisnummer, forKey: .straatHuisnummer)
+        try container.encode(landcode, forKey: .landcode)
+        try container.encode(info, forKey: .info)
     }
+}
+func cleanupBezoeken(){
+    let allVisits = fetchAlleBezoeken().sorted{$0.arrival_1970 < $1.arrival_1970}
+    var prevVisit : Bezoek?
+    var mark = ""
+    print("aantal visites voor \(#function)",allVisits.count)
+    for visit in allVisits{
+        if let x = prevVisit {
+        if (visit.arrival_1970 < x.departure_1970 && visit.arrival_1970 >= x.arrival_1970) {
+            mark = mark + "*"
+            if visit.arrival_1970 == x.arrival_1970 && visit.departure_1970 == x.departure_1970 && visit.latitude == x.latitude && visit.longitude == x.longitude {print ("will be deleted") }
+                context.delete(x)
+            }
+            if visit.departure_1970 >= Date_70(Date.distantFuture) {
+                print (visit.arrivalDate.dd_MM_yyyy_HH_mm," tot ",visit.departureDate.dd_MM_yyyy_HH_mm, " ", mark)
+                print ("will be deleted")
+                context.delete(visit)
+//                delegate.saveContext()
+            }
+            
+        }
+        prevVisit = visit
+    }
+
+   delegate.saveContext()
+    print("aantal visites na \(#function)",telBezoeken())
+
 }
 func geenAdressen()->Bool{
     if fetchFirstAdres() == nil {return true} else {return false}
@@ -172,7 +219,7 @@ func fetchNearestAdres(latitude:Double,longitude:Double,distance:Double)->Adres?
     
     if kortsteAfstand != distance {return naburigeAdressen[indexKortsteAfstand]}
     
-    //        print ("geen closestAdres?")
+    print ("geen closestAdres?")
     return nil
 }
 func geocode(latitude: Double, longitude: Double, completion: @escaping (CLPlacemark?, Error?) -> ())  {
@@ -249,10 +296,17 @@ func telBezoekenZonderAdres()->Int
 func checkBezoekenZonderAdres(){
     if let visiteZonderAdres = fetchFirstBezoekZonderAdres()
     {
+        if (visiteZonderAdres.arrival_1970 == 0 && visiteZonderAdres.latitude == 0){
+                context.delete(visiteZonderAdres)
+                delegate.saveContext()
+                NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
+                return
+            
+        }
         if let closestAdres = fetchNearestAdres(latitude: Double(visiteZonderAdres.latitude), longitude: Double(visiteZonderAdres.longitude), distance: 50)
         {
-            visiteZonderAdres.metAdres = closestAdres
-//            closestAdres.addToBezocht(visiteZonderAdres)
+//            visiteZonderAdres.metAdres = closestAdres
+            closestAdres.addToBezocht(visiteZonderAdres)
             delegate.saveContext()
             ErrMsg("\(telBezoekenZonderAdres())",.debug,#function)
             NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
@@ -283,6 +337,8 @@ func checkBezoekenZonderAdres(){
                 adres.stad = placemark.locality
                 visiteZonderAdres.metAdres = adres
                 delegate.saveContext()
+                tabelData?.insert(visiteZonderAdres)
+                NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
                 sleep(UInt32(0.8))
                 NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
 //                checkBezoekenZonderAdres()

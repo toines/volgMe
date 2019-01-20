@@ -24,13 +24,15 @@ class LogBoekVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initLocationManager()
-//        if geenAdressen(){
+        if geenAdressen(){
 //         StoreAllContactsAdresses()
-         readJson()  //lees visites uit file
-//        }
-        if !(tabelData != nil) {tabelData = CellGevens()}
-        tabelData?.expandMaanden()
+         readJsonAdressen()
+         readJsonBezoeken()  //lees visites uit file
+        }
+        stuurNotification(title: "locationManager did start monitoring visits",body: "\(Date().DD_hh_mm())", badge: 0)
+
         print ("---")
+        cleanupBezoeken()
         initiateSearchBar()
         vraagToestemmingVoorNotifications()
         checkForBackgroundForeground()
@@ -62,6 +64,7 @@ class LogBoekVC: UIViewController {
             //            }
         }
     }
+//    override func will
 
 }
 

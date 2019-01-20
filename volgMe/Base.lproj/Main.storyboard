@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="1822" y="-903"/>
         </scene>
-        <!--Dagboek-->
+        <!--Logboek-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LogBoekVC" customModule="volgMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -445,7 +445,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dagboek" id="wlr-oK-UnO">
+                    <navigationItem key="navigationItem" title="Logboek" id="wlr-oK-UnO">
                         <barButtonItem key="rightBarButtonItem" title="Setup" id="v8J-GP-voy">
                             <connections>
                                 <segue destination="4HF-5i-5J3" kind="show" id="8Cc-wN-IrD"/>

@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		136A55B721F1ED2700CE4094 /* adressen.json in Resources */ = {isa = PBXBuildFile; fileRef = 136A55B621F1ED2700CE4094 /* adressen.json */; };
+		136A55B921F1ED5000CE4094 /* visits.json in Resources */ = {isa = PBXBuildFile; fileRef = 136A55B821F1ED5000CE4094 /* visits.json */; };
 		CF27D9AA21766AA500B35197 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */; };
-		CF2BE50E21877FA900B81553 /* visitsNew.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2BE50D21877FA900B81553 /* visitsNew.json */; };
 		CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */; };
 		CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */; };
 		CF309636217C85BC00153DCD /* DagInfoUpdateTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309635217C85BC00153DCD /* DagInfoUpdateTVC.swift */; };
 		CF479D13218DC9A100B0E188 /* SetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF479D12218DC9A100B0E188 /* SetupVC.swift */; };
 		CF594DD62160ECD700D04356 /* algemeneFuncties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF594DD52160ECD700D04356 /* algemeneFuncties.swift */; };
-		CF5A1C3F215BB335003C12A5 /* visits.json in Resources */ = {isa = PBXBuildFile; fileRef = CF5A1C3E215BB335003C12A5 /* visits.json */; };
 		CF65D6DD216F45DC00C8C8E1 /* UserNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF65D6DC216F45DC00C8C8E1 /* UserNotifications.swift */; };
 		CF65D702216FCFB300C8C8E1 /* dagUitgebreidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF65D701216FCFB300C8C8E1 /* dagUitgebreidTableViewCell.swift */; };
 		CF663AF82168F18F00694C97 /* SearchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF663AF72168F18F00694C97 /* SearchExtensions.swift */; };
@@ -40,14 +40,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		136A55B621F1ED2700CE4094 /* adressen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = adressen.json; sourceTree = "<group>"; };
+		136A55B821F1ED5000CE4094 /* visits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visits.json; sourceTree = "<group>"; };
 		CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
-		CF2BE50D21877FA900B81553 /* visitsNew.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visitsNew.json; sourceTree = "<group>"; };
 		CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
 		CF309635217C85BC00153DCD /* DagInfoUpdateTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DagInfoUpdateTVC.swift; sourceTree = "<group>"; };
 		CF479D12218DC9A100B0E188 /* SetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupVC.swift; sourceTree = "<group>"; };
 		CF594DD52160ECD700D04356 /* algemeneFuncties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = algemeneFuncties.swift; sourceTree = "<group>"; };
-		CF5A1C3E215BB335003C12A5 /* visits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visits.json; sourceTree = "<group>"; };
 		CF65D6DC216F45DC00C8C8E1 /* UserNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotifications.swift; sourceTree = "<group>"; };
 		CF65D701216FCFB300C8C8E1 /* dagUitgebreidTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dagUitgebreidTableViewCell.swift; sourceTree = "<group>"; };
 		CF663AF72168F18F00694C97 /* SearchExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchExtensions.swift; sourceTree = "<group>"; };
@@ -86,6 +86,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13D9E74421F470D800AEBF71 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */,
+				CF664859215967F6003B58A0 /* ContactsExtension.swift */,
+				CF66485B21596C13003B58A0 /* dateExtensions.swift */,
+				CFE4D227215A600E005A4507 /* JsonExtensions.swift */,
+				CF66485721596390003B58A0 /* LocationManagerExtensions.swift */,
+				CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */,
+				CF663AF72168F18F00694C97 /* SearchExtensions.swift */,
+				CFE467042158FD1900179A69 /* TableViewExtensions.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		13D9E74521F4711300AEBF71 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				CF65D701216FCFB300C8C8E1 /* dagUitgebreidTableViewCell.swift */,
+				CF81129A216E2DA900DB10EE /* visiteTableViewCell.swift */,
+				CF743A802179D88D00479982 /* adresBezoekTableViewCell.swift */,
+				CF743A822179EB9D00479982 /* AdresHeaderCell.swift */,
+				CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */,
+				CF93AA2B21773F56001E96C5 /* searchHeaderViewCell.swift */,
+				CF811296216E2D7300DB10EE /* maandTableViewCell.swift */,
+				CF811298216E2D8B00DB10EE /* dagTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		CFE466BB2158F9A600179A69 = {
 			isa = PBXGroup;
 			children = (
@@ -113,27 +143,13 @@
 				CF309635217C85BC00153DCD /* DagInfoUpdateTVC.swift */,
 				CF65D6DC216F45DC00C8C8E1 /* UserNotifications.swift */,
 				CF594DD52160ECD700D04356 /* algemeneFuncties.swift */,
-				CF664859215967F6003B58A0 /* ContactsExtension.swift */,
-				CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */,
-				CF66485B21596C13003B58A0 /* dateExtensions.swift */,
-				CFE4D227215A600E005A4507 /* JsonExtensions.swift */,
-				CF66485721596390003B58A0 /* LocationManagerExtensions.swift */,
-				CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */,
-				CF663AF72168F18F00694C97 /* SearchExtensions.swift */,
-				CF743A822179EB9D00479982 /* AdresHeaderCell.swift */,
-				CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */,
-				CF93AA2B21773F56001E96C5 /* searchHeaderViewCell.swift */,
-				CFE467042158FD1900179A69 /* TableViewExtensions.swift */,
-				CF811296216E2D7300DB10EE /* maandTableViewCell.swift */,
-				CF811298216E2D8B00DB10EE /* dagTableViewCell.swift */,
-				CF65D701216FCFB300C8C8E1 /* dagUitgebreidTableViewCell.swift */,
-				CF81129A216E2DA900DB10EE /* visiteTableViewCell.swift */,
-				CF743A802179D88D00479982 /* adresBezoekTableViewCell.swift */,
+				13D9E74421F470D800AEBF71 /* extensions */,
+				13D9E74521F4711300AEBF71 /* TableViewCells */,
 				CFE466CB2158F9A600179A69 /* Main.storyboard */,
 				CFE466D12158F9A800179A69 /* Assets.xcassets */,
 				CFE466D32158F9A800179A69 /* LaunchScreen.storyboard */,
-				CF5A1C3E215BB335003C12A5 /* visits.json */,
-				CF2BE50D21877FA900B81553 /* visitsNew.json */,
+				136A55B621F1ED2700CE4094 /* adressen.json */,
+				136A55B821F1ED5000CE4094 /* visits.json */,
 				CFE466D62158F9A800179A69 /* Info.plist */,
 				CFE466CE2158F9A600179A69 /* volgMe.xcdatamodeld */,
 				CFE466C52158F9A600179A69 /* Products */,
@@ -215,11 +231,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF5A1C3F215BB335003C12A5 /* visits.json in Resources */,
-				CF2BE50E21877FA900B81553 /* visitsNew.json in Resources */,
 				CFE466D52158F9A800179A69 /* LaunchScreen.storyboard in Resources */,
 				CFE466D22158F9A800179A69 /* Assets.xcassets in Resources */,
+				136A55B721F1ED2700CE4094 /* adressen.json in Resources */,
 				CFE466CD2158F9A600179A69 /* Main.storyboard in Resources */,
+				136A55B921F1ED5000CE4094 /* visits.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

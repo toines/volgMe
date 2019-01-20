@@ -14,7 +14,7 @@ extension LogBoekVC {
     func  vraagToestemmingVoorNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
     }
-    
+}
     func stuurNotification(title:String,body:String,badge:NSNumber){
         notes = notes + [body]
         var x = ""
@@ -31,4 +31,4 @@ extension LogBoekVC {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         if notes.count == 4 {notes.remove(at: 0)}
     }
-}
+

@@ -73,7 +73,7 @@ class AdresVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UIText
                     }
                 }
             }
-            
+        
             // Do any additional setup after loading the view.
         }
     

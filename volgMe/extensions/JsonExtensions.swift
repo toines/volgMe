@@ -36,15 +36,31 @@ func clean(_ visites:[myCLVisit])->[myCLVisit]{
     return cleanedTable
 }
 
+func readJsonAdressen() {
+    
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .iso8601
+    var adressen = [AdresJson]()
+    do {
+        if let fileUrl =  Bundle.main.url(forResource: "adressen", withExtension: "json")
+        {
+            let jsonData = try Data(contentsOf: fileUrl)
+            adressen = try decoder.decode([AdresJson].self, from: jsonData as Data)
+            print (adressen.count)
+        } else {print ("No adresData")}
+    }   catch {print ("Error",error)}
+    for adres in adressen {
+        let _ = Adres(adres)
+    }
+}
 
-
-func readJson() {
+func readJsonBezoeken() {
 
     let decoder = JSONDecoder()
     decoder.dateDecodingStrategy = .iso8601
     var bezoekenUitJson = [myCLVisit]()
     do {
-    if let fileUrl =  Bundle.main.url(forResource: "visitsNew", withExtension: "json")
+    if let fileUrl =  Bundle.main.url(forResource: "visits", withExtension: "json")
     {
         let jsonData = try Data(contentsOf: fileUrl)
         bezoekenUitJson = try decoder.decode([myCLVisit].self, from: jsonData as Data)
@@ -52,7 +68,7 @@ func readJson() {
         print(bezoekenUitJson)
         print (bezoekenUitJson[0].arrival_1970.date.HHmm)
         
-    } else {print("no data")}
+    } else {print("===  no data, input file niet gevonden??")}
         let bezoeken = fetchAlleBezoeken()
         for bezoek in bezoeken{
             bezoekenUitJson.append(myCLVisit(bezoek))
@@ -143,6 +159,41 @@ class myCLVisit:Codable,CustomStringConvertible {  // tijdelijk
         return "\(arrival_1970.date.yyyyMMdd ) => "
     }
 }
+class AdresJson:Codable {
+    enum CodingKeys: String, CodingKey { case confirmed,landcode,latitudeFloat="latitude",longitudeFloat="longitude",naam,postcode,provincie,soortPlaats,stad,straatHuisnummer}
+    var confirmed = false
+    var icon = ""
+    var info = ""
+    var landcode = ""
+    var latitudeFloat = Float(0)
+    var longitudeFloat = Float(0)
+    var naam = ""
+    var postcode = ""
+    var provincie = ""
+    var soortPlaats = ""
+    var stad = ""
+    var straatHuisnummer = ""
+    
+    var straat : String {get {return straatHuisnummer.straat}}
+    var huisnummer : String {get {return straatHuisnummer.huisnummer}}
+    
+}
+extension String {
+    var huisnummer : String{
+        var huisnummer = ""
+        var res = self
+        while res.rangeOfCharacter(from: .decimalDigits) != nil {
+            huisnummer = String( res.removeLast()) + huisnummer
+        }
+        return(huisnummer)
+    }
+    var straat : String{
+        var res = self
+        while res.rangeOfCharacter(from: .decimalDigits) != nil {_ = res.removeLast()}
+        return(res)
+    }
+}
+
 
 
 

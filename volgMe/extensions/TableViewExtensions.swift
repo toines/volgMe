@@ -68,8 +68,8 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
         let cell = tableView.dequeueReusableCell(withIdentifier: "visite", for: indexPath) as! visiteTableViewCell
         if let  x = tabelData {
             let y = (tabelData!.dagTabel.keys.sorted()[indexPath.section])
-            let z = tabelData!.dagTabel[y]
-            cell.vulVisiteCell(forDatum:z![indexPath.row],visite :x.dagTabel.keys.sorted()[indexPath.section])}
+            let z = tabelData!.dagTabel[y]?.sorted()
+            cell.vulVisiteCell(forDatum:z![indexPath.row],visite :x.dagTabel.keys.sorted{$0<$1}[indexPath.section])}
         if (indexPath.row % 2) == 1 {cell.backgroundColor = UIColor(red: 0, green: 0.8, blue: 0.5, alpha: 1)} else {cell.backgroundColor = UIColor(red: 0, green: 0.8, blue: 0.6, alpha: 1)}
             return cell}
     }
@@ -136,6 +136,9 @@ class CellGevens {
      
     func insert(_ bezoek:Bezoek){
         let dagen = datums(van: bezoek.arrival_1970, totEnMet: bezoek.departure_1970)
+        if dagen.count > 1 {
+            print("\(#function) van:\(bezoek.arrivalDate.d_M_yyyy) tot: \(bezoek.departureDate.d_M_yyyy)")
+        }
         for dag in dagen
         {
             if let x = datumDictionary[dag.date.yyyyMM] {
