@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
-    // MARK: - Table View
+     // MARK: - Table View
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 70.0
     }
@@ -40,6 +40,9 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
             return cell
         }
 //        let info = tabelData!.kalender[section]
+        
+ 
+        
           let info = tabelData!.dagTabel.keys.sorted()[section]
                 var id = ""
                 switch info.count {
@@ -51,6 +54,7 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
                 switch id {
                 case "maand": let cell = tableView.dequeueReusableCell(withIdentifier: id,for: IndexPath(row: 0, section: section)) as! maandTableViewCell
                     cell.vulMaandCell(maand: info)
+                print ("section:",section)
                     return cell
                 default : let cell = tableView.dequeueReusableCell(withIdentifier: id,for: IndexPath(row: 0, section: section)) as! dagTableViewCell
                     cell.vulDagCell(dag: info)
@@ -79,6 +83,7 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
         // Return false if you do not want the specified item to be editable.
         return true
     }
+    
     
 }
 
@@ -167,6 +172,7 @@ class CellGevens {
         for bezoek in bezoeken{
             insert(bezoek)
         }
+
     }
 
 }

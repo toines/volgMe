@@ -29,16 +29,26 @@ class LogBoekVC: UIViewController {
          readJsonAdressen()
          readJsonBezoeken()  //lees visites uit file
         }
-        stuurNotification(title: "locationManager did start monitoring visits",body: "\(Date().DD_hh_mm())", badge: 0)
+        stuurNotification(title: "Start monitoring visits",body: "\(Date().yyyy_MM_dd_HH_mm_ss)", badge: 0)
 
         print ("---")
         cleanupBezoeken()
         initiateSearchBar()
         vraagToestemmingVoorNotifications()
         checkForBackgroundForeground()
+
+        
         // Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+//        scrollToBottom()
+    }
     
+    func scrollToBottom(){
+        if let x = tabelData{
+            let lastIndex = NSIndexPath(row: x.dagTabel.keys.sorted().last?.count ?? 0, section: x.dagTabel.count - 1)
+            tableViewDatum.scrollToRow(at: lastIndex as IndexPath, at: UITableView.ScrollPosition.bottom, animated: true)}
+    }
 
     /*
     // MARK: - Navigation

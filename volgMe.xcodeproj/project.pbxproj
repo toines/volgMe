@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		136A55B721F1ED2700CE4094 /* adressen.json in Resources */ = {isa = PBXBuildFile; fileRef = 136A55B621F1ED2700CE4094 /* adressen.json */; };
 		136A55B921F1ED5000CE4094 /* visits.json in Resources */ = {isa = PBXBuildFile; fileRef = 136A55B821F1ED5000CE4094 /* visits.json */; };
+		13B0DF8B21F5D32600E56EF6 /* VBTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B0DF8A21F5D32600E56EF6 /* VBTableViewController.swift */; };
 		CF27D9AA21766AA500B35197 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */; };
 		CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */; };
 		CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		136A55B621F1ED2700CE4094 /* adressen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = adressen.json; sourceTree = "<group>"; };
 		136A55B821F1ED5000CE4094 /* visits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visits.json; sourceTree = "<group>"; };
+		13B0DF8A21F5D32600E56EF6 /* VBTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTableViewController.swift; sourceTree = "<group>"; };
 		CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		CFE466BB2158F9A600179A69 = {
 			isa = PBXGroup;
 			children = (
+				13B0DF8A21F5D32600E56EF6 /* VBTableViewController.swift */,
 				CF479D12218DC9A100B0E188 /* SetupVC.swift */,
 				CFE466C62158F9A600179A69 /* volgMe */,
 				CFE466DC2158FA6400179A69 /* Frameworks */,
@@ -262,6 +265,7 @@
 				CF93AA2E21776AEB001E96C5 /* AdresVC.swift in Sources */,
 				CF594DD62160ECD700D04356 /* algemeneFuncties.swift in Sources */,
 				CFE466E02158FC2000179A69 /* LogBoekVC.swift in Sources */,
+				13B0DF8B21F5D32600E56EF6 /* VBTableViewController.swift in Sources */,
 				CFE466D02158F9A600179A69 /* volgMe.xcdatamodeld in Sources */,
 				CF65D6DD216F45DC00C8C8E1 /* UserNotifications.swift in Sources */,
 				CF479D13218DC9A100B0E188 /* SetupVC.swift in Sources */,

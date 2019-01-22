@@ -294,6 +294,8 @@ func telBezoekenZonderAdres()->Int
 
 
 func checkBezoekenZonderAdres(){
+//    let bezoekenZonderAdresGroup = DispatchGroup()
+//    bezoekenZonderAdresGroup.enter()
     if let visiteZonderAdres = fetchFirstBezoekZonderAdres()
     {
         if (visiteZonderAdres.arrival_1970 == 0 && visiteZonderAdres.latitude == 0){
@@ -308,6 +310,8 @@ func checkBezoekenZonderAdres(){
 //            visiteZonderAdres.metAdres = closestAdres
             closestAdres.addToBezocht(visiteZonderAdres)
             delegate.saveContext()
+            tabelData?.insert(visiteZonderAdres)
+            NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
             ErrMsg("\(telBezoekenZonderAdres())",.debug,#function)
             NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
 //            checkBezoekenZonderAdres()
@@ -337,8 +341,8 @@ func checkBezoekenZonderAdres(){
                 adres.stad = placemark.locality
                 visiteZonderAdres.metAdres = adres
                 delegate.saveContext()
-                tabelData?.insert(visiteZonderAdres)
-                NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
+                tabelData?.insert(visiteZonderAdres) //
+                NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil) //
                 sleep(UInt32(0.8))
                 NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
 //                checkBezoekenZonderAdres()
@@ -348,7 +352,7 @@ func checkBezoekenZonderAdres(){
     else {ErrMsg("checkBezoekenZonderAdres afgewerkt", .debug, #function)
         NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
     }
-    
+//    bezoekenZonderAdresGroup.leave()
     return
 }
 //func reFetchArray(key:String)-> [String]{
