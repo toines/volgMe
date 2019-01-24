@@ -11,11 +11,10 @@ import UIKit
 class dagTableViewCell: UITableViewCell {
     
     @IBOutlet var dagStackView: UIStackView!
-    @IBOutlet var knop: UIButton!
-    @IBAction func geselecteerd(_ sender: Any) {
-        print ("\(self.knop.title(for: .normal) ?? "")")
-        if let x = self.knop.title(for: .normal) {tabelData!.handleVisitesVoor(dag:x)}
-        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
+    var dag : String?
+    func geselecteerd() {
+        if let x = dag {tabelData!.handleVisitesVoor(dag:x)}
+//        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
         
     }
     @IBAction func Info(_ sender: Any) {
@@ -43,7 +42,7 @@ class dagTableViewCell: UITableViewCell {
         }
         stad.text = x
         datum.text = "\(dag.toDate().EEEE()) : \(dag.toDate().d_MMMM_yyyy)"
-        knop.setTitle(dag, for: .normal)
+        self.dag = dag
         //        cell.dag.text = dag.toDate().EEEE()
     }
 

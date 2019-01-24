@@ -17,12 +17,16 @@ class LogBoekVC: UIViewController {
     
     @IBOutlet var tableViewDatum: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
-    var zoekende = false
+    var zoekende = false  // is in searching state.
+    
+
 
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        tableViewDatum.delegate = self
+//        tableViewDatum.dataSource = self
         initLocationManager()
         if geenAdressen(){
 //         StoreAllContactsAdresses()
@@ -36,19 +40,19 @@ class LogBoekVC: UIViewController {
         initiateSearchBar()
         vraagToestemmingVoorNotifications()
         checkForBackgroundForeground()
-
+ 
         
         // Do any additional setup after loading the view.
     }
+    override func viewDidLayoutSubviews() {
+
+    }
     override func viewDidAppear(_ animated: Bool) {
-//        scrollToBottom()
+     }
+    @IBAction func toBottom(_ sender: Any) {
+        scrollToBottom()
     }
     
-    func scrollToBottom(){
-        if let x = tabelData{
-            let lastIndex = NSIndexPath(row: x.dagTabel.keys.sorted().last?.count ?? 0, section: x.dagTabel.count - 1)
-            tableViewDatum.scrollToRow(at: lastIndex as IndexPath, at: UITableView.ScrollPosition.bottom, animated: true)}
-    }
 
     /*
     // MARK: - Navigation

@@ -50,7 +50,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="1" green="0.98507647040948276" blue="0.99353719222733872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="maand" id="IDa-Rw-nkc" customClass="maandTableViewCell" customModule="volgMe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="maand" id="IDa-Rw-nkc" customClass="maandTableViewCell" customModule="volgMe">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IDa-Rw-nkc" id="LFC-Z6-dWu">
@@ -86,22 +86,7 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9G-Lv-wM6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
-                                                    <state key="normal" title="Button">
-                                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="geselecteerd:" destination="IDa-Rw-nkc" eventType="touchUpInside" id="jxW-QA-LDP"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="g9G-Lv-wM6" firstAttribute="width" secondItem="LFC-Z6-dWu" secondAttribute="width" id="7qe-gc-YeM"/>
-                                                <constraint firstItem="g9G-Lv-wM6" firstAttribute="centerX" secondItem="LFC-Z6-dWu" secondAttribute="centerX" id="NiB-Ae-V0D"/>
-                                                <constraint firstItem="g9G-Lv-wM6" firstAttribute="centerY" secondItem="LFC-Z6-dWu" secondAttribute="centerY" id="OEb-FL-jpQ"/>
-                                                <constraint firstItem="g9G-Lv-wM6" firstAttribute="height" secondItem="LFC-Z6-dWu" secondAttribute="height" id="lE7-bC-eUm"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.11952068463799914" green="0.11952068463799914" blue="0.11952068463799914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -112,12 +97,11 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="jaar" destination="LYL-iW-iys" id="8oB-Ut-SGb"/>
-                                            <outlet property="knop" destination="g9G-Lv-wM6" id="ylk-m8-7qk"/>
                                             <outlet property="landen" destination="JfW-jl-nhH" id="ZdX-e0-PMI"/>
                                             <outlet property="maand" destination="gJC-p2-eAc" id="Auk-qk-Rhv"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dag" id="FxD-x5-yXr" customClass="dagTableViewCell" customModule="volgMe">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="dag" id="FxD-x5-yXr" customClass="dagTableViewCell" customModule="volgMe">
                                         <rect key="frame" x="0.0" y="108" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FxD-x5-yXr" id="B4h-cp-zTj">
@@ -147,54 +131,37 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Gh-do-hE4">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhe-yx-D88">
-                                                            <rect key="frame" x="0.0" y="0.0" width="335.5" height="79.5"/>
-                                                            <color key="tintColor" red="0.1195206846" green="0.1195206846" blue="0.1195206846" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <state key="normal" title="Button">
-                                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="geselecteerd:" destination="FxD-x5-yXr" eventType="touchUpInside" id="VmM-HX-zL8"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zw8-yI-ZhW">
-                                                            <rect key="frame" x="335.5" y="0.0" width="39.5" height="79.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="zw8-yI-ZhW" secondAttribute="height" multiplier="15:30" id="UZb-07-Fat"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                            <state key="normal" title="🖌"/>
-                                                            <connections>
-                                                                <action selector="Info:" destination="FxD-x5-yXr" eventType="touchUpInside" id="Rzt-YY-Ueq"/>
-                                                                <segue destination="IYG-Rd-n5r" kind="show" id="zGS-jK-Tiw"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zw8-yI-ZhW">
+                                                    <rect key="frame" x="335.5" y="0.0" width="39.5" height="79.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="zw8-yI-ZhW" secondAttribute="height" multiplier="15:30" id="UZb-07-Fat"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                    <state key="normal" title="🖌"/>
+                                                    <connections>
+                                                        <action selector="Info:" destination="FxD-x5-yXr" eventType="touchUpInside" id="Rzt-YY-Ueq"/>
+                                                        <segue destination="IYG-Rd-n5r" kind="show" id="zGS-jK-Tiw"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="bjl-k2-nd8" firstAttribute="centerY" secondItem="B4h-cp-zTj" secondAttribute="centerY" id="153-w2-RVs"/>
-                                                <constraint firstItem="1Gh-do-hE4" firstAttribute="height" secondItem="B4h-cp-zTj" secondAttribute="height" id="Go6-dd-1hX"/>
+                                                <constraint firstAttribute="trailing" secondItem="zw8-yI-ZhW" secondAttribute="trailing" id="4TI-mh-76A"/>
                                                 <constraint firstItem="bjl-k2-nd8" firstAttribute="width" secondItem="B4h-cp-zTj" secondAttribute="width" id="TFs-3J-y9E"/>
-                                                <constraint firstItem="1Gh-do-hE4" firstAttribute="centerX" secondItem="B4h-cp-zTj" secondAttribute="centerX" id="TQK-AY-nme"/>
                                                 <constraint firstItem="bjl-k2-nd8" firstAttribute="height" secondItem="B4h-cp-zTj" secondAttribute="height" id="YqM-HJ-H1s"/>
-                                                <constraint firstItem="1Gh-do-hE4" firstAttribute="width" secondItem="B4h-cp-zTj" secondAttribute="width" id="ecO-68-gGC"/>
-                                                <constraint firstItem="1Gh-do-hE4" firstAttribute="centerY" secondItem="B4h-cp-zTj" secondAttribute="centerY" id="fZ1-ds-K5Y"/>
+                                                <constraint firstItem="zw8-yI-ZhW" firstAttribute="height" secondItem="bjl-k2-nd8" secondAttribute="height" id="eOk-JI-DI5"/>
                                                 <constraint firstItem="bjl-k2-nd8" firstAttribute="centerX" secondItem="B4h-cp-zTj" secondAttribute="centerX" id="iQd-If-Jjz"/>
+                                                <constraint firstItem="zw8-yI-ZhW" firstAttribute="centerY" secondItem="bjl-k2-nd8" secondAttribute="centerY" id="jfS-oS-maS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="dagStackView" destination="sei-LL-yWB" id="bdE-cw-SBT"/>
                                             <outlet property="datum" destination="ZS4-KA-phb" id="s3V-KB-QHv"/>
-                                            <outlet property="knop" destination="nhe-yx-D88" id="4rE-gg-KdS"/>
                                             <outlet property="stad" destination="nr3-9g-q9C" id="Quk-eJ-hqc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="visite" id="VjM-pY-cke" customClass="visiteTableViewCell" customModule="volgMe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="visite" id="VjM-pY-cke" customClass="visiteTableViewCell" customModule="volgMe">
                                         <rect key="frame" x="0.0" y="188" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VjM-pY-cke" id="QUD-mR-eqV">
@@ -271,7 +238,7 @@
                                             <outlet property="straat" destination="rvB-1G-0gn" id="FZ4-Xb-NSA"/>
                                             <outlet property="tot" destination="SXc-SD-CUG" id="nbY-Yu-eZB"/>
                                             <outlet property="van" destination="beq-1t-IGZ" id="ISK-ZZ-4fC"/>
-                                            <segue destination="wGG-VS-vcT" kind="show" identifier="bewerkAdres" id="BEm-7T-wQi"/>
+                                            <segue destination="wGG-VS-vcT" kind="show" identifier="bewerkAdres" id="aio-QQ-clY"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="gevonden" rowHeight="90" id="px0-SX-IKp" customClass="SearchTableViewCell" customModule="volgMe" customModuleProvider="target">
@@ -401,7 +368,7 @@
                                             <outlet property="straat" destination="hb9-hB-Bwj" id="utR-G5-YKI"/>
                                             <outlet property="vanTot" destination="6Um-OB-8Xm" id="Qgp-q1-32c"/>
                                             <outlet property="vlag" destination="Gwl-st-tra" id="Ihw-Ec-imM"/>
-                                            <segue destination="wGG-VS-vcT" kind="show" identifier="bewerkAdres" id="fJ1-J2-OEJ"/>
+                                            <segue destination="wGG-VS-vcT" kind="show" identifier="bewerkAdres" id="gJZ-iL-3fx"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="aantalGevonden" rowHeight="30" id="uxK-7I-hc7" customClass="searchHeaderViewCell" customModule="volgMe" customModuleProvider="target">
@@ -446,6 +413,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Logboek" id="wlr-oK-UnO">
+                        <barButtonItem key="leftBarButtonItem" title="Bottom" id="wcV-HY-aCT">
+                            <connections>
+                                <action selector="toBottom:" destination="BYZ-38-t0r" id="XwH-Q7-s0f"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Setup" id="v8J-GP-voy">
                             <connections>
                                 <segue destination="4HF-5i-5J3" kind="show" id="8Cc-wN-IrD"/>
@@ -839,6 +811,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fJ1-J2-OEJ"/>
+        <segue reference="aio-QQ-clY"/>
     </inferredMetricsTieBreakers>
 </document>

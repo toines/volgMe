@@ -9,16 +9,15 @@
 import UIKit
 
 class maandTableViewCell: UITableViewCell {
-    @IBOutlet var knop: UIButton!
-    @IBAction func geselecteerd(_ sender: Any) {
-        print ("\(self.knop.title(for: .normal) ?? "")")
-        if let x = self.knop.title(for: .normal) {tabelData!.handleDagenVoor(maand:x)}
-        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
+    func geselecteerd() {
+ //       print ("\(self.knop.title(for: .normal) ?? "")")
+        if let x = self.knop {tabelData!.handleDagenVoor(maand:x)}
+//        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
     }
     @IBOutlet var jaar: UILabel!
     @IBOutlet var maand: UILabel!
     @IBOutlet var landen: UILabel!
-    
+    var knop : String?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -36,9 +35,8 @@ class maandTableViewCell: UITableViewCell {
         landen.text = "\(x)"
         jaar.text = String(maand.prefix(4))
         self.maand.text = maand.toDate().MMMM
-        knop.setTitle(maand, for: .normal)
+        knop = maand
     }
-
 }
 
 

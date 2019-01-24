@@ -56,19 +56,6 @@ extension LogBoekVC: UISearchResultsUpdating {
                 }
                 }
             }
-            //        var sSet = Set(x) // oud
-            //            x.dagTabel = x.dagTabel.filter{$0.key.count < 7}
-            //            for adres in adressen {if (adres.bezocht?.count)! > 0
-            //        {
-            //            print ("\(adres.naam ?? "niks")")
-            //            for datum in Array(adres.bezocht!) as! [Bezoek] {
-            //                tabelData?.dagTabel[datum.arrival_1970.date.yyyyMM] = [Date_70]()
-            //                if let y = tabelData?.dagTabel[datum.arrival_1970.date.yyyyMMdd] {
-            //                tabelData?.dagTabel[datum.arrival_1970.date.yyyyMMdd] = y + [datum.arrival_1970]
-            //                } else
-            //                {tabelData?.dagTabel[datum.arrival_1970.date.yyyyMMdd] = [datum.arrival_1970]}
-            //            }
-            //            }
         }
         tableViewDatum.reloadData()
     }
