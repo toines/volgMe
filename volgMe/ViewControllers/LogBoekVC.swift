@@ -41,13 +41,21 @@ class LogBoekVC: UIViewController {
         vraagToestemmingVoorNotifications()
         checkForBackgroundForeground()
  
+
         
         // Do any additional setup after loading the view.
+    }
+    func checkGemisteVisites() {
+        let gemisteVisites = fetchAlleGemisteVisites()
+        for vis in gemisteVisites {
+            print ("\(#function) arr: \(vis.arrivalDate.yyyy_MM_dd_HH_mm_ss) dep: \(vis.departureDate.yyyy_MM_dd_HH_mm_ss)")
+        }
+
     }
     override func viewDidLayoutSubviews() {
 
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
      }
     @IBAction func toBottom(_ sender: Any) {
         scrollToBottom()

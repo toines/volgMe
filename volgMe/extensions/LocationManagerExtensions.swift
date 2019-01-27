@@ -27,6 +27,10 @@ extension LogBoekVC : CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         if (visit.arrivalDate > Date.distantPast && visit.departureDate < Date.distantFuture)
         {didVisit(Bezoek(visit))}
+        else {
+            let _ = IncompleetBezoek(visit)
+            delegate.saveContext()
+        }
         let x = telBezoeken()
         stuurNotification(title: "\(x) didVisit:", body: " arr:\(visit.arrivalDate.DD_hh_mm()) dep:\(visit.departureDate.DD_hh_mm())", badge: 0)
  //       sendNotification()

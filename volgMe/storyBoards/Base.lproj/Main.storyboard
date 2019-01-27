@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--SetupVC-->
+        <!--Setup-->
         <scene sceneID="1US-GV-X8v">
             <objects>
                 <viewController id="4HF-5i-5J3" customClass="SetupVC" customModule="volgMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,10 +32,104 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Drg-yg-bXG"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Setup" id="4k7-mx-2V5">
+                        <barButtonItem key="rightBarButtonItem" title="gemiste Visites" id="yLZ-JN-5qY">
+                            <connections>
+                                <segue destination="mYB-56-ZHn" kind="show" id="mJ5-SU-Wyy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQT-2H-w9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1822" y="-903"/>
+        </scene>
+        <!--Gemiste Visites-->
+        <scene sceneID="pTR-ca-1g9">
+            <objects>
+                <tableViewController title="Gemiste Visites" id="mYB-56-ZHn" customClass="GemisteVisitesVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="abU-iI-A1g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="MYw-V7-xXP">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="gemisteVisite" rowHeight="60" id="Vdt-ra-uy2" customClass="GemisteVisiteCell" customModule="volgMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vdt-ra-uy2" id="F4U-Jv-vlF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LLE-ga-FeJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="TAy-CX-2FZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aankomst" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYS-hm-wFw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="165.5" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7y-UN-7Z2">
+                                                            <rect key="frame" x="209.5" y="0.0" width="165.5" height="30"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="VXP-yL-WRB">
+                                                    <rect key="frame" x="0.0" y="30" width="375" height="29.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vertrek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rh9-EI-SjV">
+                                                            <rect key="frame" x="0.0" y="0.0" width="165.5" height="29.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Kr-ds-ciH">
+                                                            <rect key="frame" x="209.5" y="0.0" width="165.5" height="29.5"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="LLE-ga-FeJ" firstAttribute="centerY" secondItem="F4U-Jv-vlF" secondAttribute="centerY" id="9bC-JW-uon"/>
+                                        <constraint firstItem="LLE-ga-FeJ" firstAttribute="width" secondItem="F4U-Jv-vlF" secondAttribute="width" id="WIN-35-gJG"/>
+                                        <constraint firstItem="LLE-ga-FeJ" firstAttribute="height" secondItem="F4U-Jv-vlF" secondAttribute="height" id="dvY-fd-Ia3"/>
+                                        <constraint firstItem="LLE-ga-FeJ" firstAttribute="centerX" secondItem="F4U-Jv-vlF" secondAttribute="centerX" id="iIw-vh-HoO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="labelAankomst" destination="XYS-hm-wFw" id="V7o-RX-iih"/>
+                                    <outlet property="labelVertrek" destination="rh9-EI-SjV" id="nVj-Lz-rFA"/>
+                                    <outlet property="textfieldAankomst" destination="b7y-UN-7Z2" id="49F-pN-fCi"/>
+                                    <outlet property="textfieldVertrek" destination="3Kr-ds-ciH" id="Qa3-qd-Jf6"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mYB-56-ZHn" id="tlR-yb-ogT"/>
+                            <outlet property="delegate" destination="mYB-56-ZHn" id="7pc-Kp-4kl"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xjn-oF-tVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2528.8000000000002" y="-904.49775112443785"/>
         </scene>
         <!--Logboek-->
         <scene sceneID="tne-QT-ifu">
@@ -670,7 +764,7 @@
                                 <action selector="terug:" destination="wGG-VS-vcT" id="a4u-Ql-OSj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Delete adres" id="U93-NU-OGw">
+                        <barButtonItem key="rightBarButtonItem" title="Delete" id="U93-NU-OGw">
                             <connections>
                                 <action selector="deleteAdress:" destination="wGG-VS-vcT" id="mPN-3E-ffH"/>
                             </connections>

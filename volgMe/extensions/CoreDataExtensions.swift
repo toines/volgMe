@@ -76,6 +76,41 @@ extension Bezoek:Encodable{    // datums in database zijn sinds 1970 !!!
         try container.encode(self.longitude, forKey: .lon)
     }
 }
+extension IncompleetBezoek:Encodable{    // datums in database zijn sinds 1970 !!!
+    var departureDate:Date{get {return Date(timeIntervalSince1970:TimeInterval(self.departure_1970))}
+        set {self.departure_1970 = Float(newValue.timeIntervalSince1970)}}
+    var arrivalDate:Date{get {return Date(timeIntervalSince1970: TimeInterval(self.arrival_1970))}
+        set {self.arrival_1970 = Float(newValue.timeIntervalSince1970)}}
+    public var coordinate:CLLocationCoordinate2D{get {return CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))}
+        set {self.latitude = Float(newValue.latitude) ; self.longitude = Float(newValue.longitude)}
+    }
+    var cllocation:CLLocation {get {return CLLocation(coordinate: coordinate, altitude: 0, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: arrivalDate)}}
+    convenience init(_ visite:CLVisit){
+        self.init(context:context)
+        self.coordinate = visite.coordinate
+        self.arrivalDate =  visite.arrivalDate
+        self.departureDate = visite.departureDate
+        //        delegate.saveContext()
+    }
+    
+    convenience init(_ visite:myCLVisit){
+        self.init(context:context)
+        self.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(visite.latitude), longitude: CLLocationDegrees(visite.longitude))
+        self.arrival_1970 =  visite.arrival_1970
+        self.departure_1970 = visite.departure_1970
+        //        delegate.saveContext()
+    }
+    private enum CodingKeys : String, CodingKey {case arr,dep,lat,lon}
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.arrival_1970, forKey: .arr)
+        try container.encode(self.departure_1970, forKey: .dep)
+        try container.encode(self.latitude, forKey: .lat)
+        try container.encode(self.longitude, forKey: .lon)
+    }
+}
+
 //extension Bezoek : Encodable {
 //    private enum CodingKeys: String, CodingKey { case arrival_1970,departure_1970,info,latitude,longitude}
 //    public func encode(to encoder: Encoder) throws {
@@ -354,6 +389,13 @@ func checkBezoekenZonderAdres(){
     }
 //    bezoekenZonderAdresGroup.leave()
     return
+}
+func fetchAlleGemisteVisites()->[IncompleetBezoek]{
+    let request  : NSFetchRequest = IncompleetBezoek.fetchRequest()
+    var gemisteVisites:[IncompleetBezoek] = []
+    do {  gemisteVisites = try context.fetch(request)
+    } catch let error {ErrMsg("foutje telBezoeken(.\(error.localizedDescription)",.debug, #function)}
+    return gemisteVisites
 }
 //func reFetchArray(key:String)-> [String]{
 //    var tabellenData = [Tabellen(context: context)]

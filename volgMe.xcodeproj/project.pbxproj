@@ -11,6 +11,9 @@
 		136A55B921F1ED5000CE4094 /* visits.json in Resources */ = {isa = PBXBuildFile; fileRef = 136A55B821F1ED5000CE4094 /* visits.json */; };
 		13B0DF8B21F5D32600E56EF6 /* VBTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B0DF8A21F5D32600E56EF6 /* VBTableViewController.swift */; };
 		13F5803021F7158000842D3E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5802F21F7158000842D3E /* UserDefaults.swift */; };
+		13F5805421FC798600842D3E /* GemisteVisitesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5805321FC798600842D3E /* GemisteVisitesVC.swift */; };
+		13F5805621FCB36600842D3E /* GemisteVisiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5805521FCB36600842D3E /* GemisteVisiteCell.swift */; };
+		13F5805821FDDB6300842D3E /* Cellgegevens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5805721FDDB6300842D3E /* Cellgegevens.swift */; };
 		CF27D9AA21766AA500B35197 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */; };
 		CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */; };
 		CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */; };
@@ -46,6 +49,9 @@
 		136A55B821F1ED5000CE4094 /* visits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visits.json; sourceTree = "<group>"; };
 		13B0DF8A21F5D32600E56EF6 /* VBTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTableViewController.swift; sourceTree = "<group>"; };
 		13F5802F21F7158000842D3E /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		13F5805321FC798600842D3E /* GemisteVisitesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemisteVisitesVC.swift; sourceTree = "<group>"; };
+		13F5805521FCB36600842D3E /* GemisteVisiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GemisteVisiteCell.swift; path = volgMe/TableViewCells/GemisteVisiteCell.swift; sourceTree = SOURCE_ROOT; };
+		13F5805721FDDB6300842D3E /* Cellgegevens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cellgegevens.swift; sourceTree = "<group>"; };
 		CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		CF2F6771215970C100D61DF7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		CF2F6773215A202F00D61DF7 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 				CF93AA2B21773F56001E96C5 /* searchHeaderViewCell.swift */,
 				CF811296216E2D7300DB10EE /* maandTableViewCell.swift */,
 				CF811298216E2D8B00DB10EE /* dagTableViewCell.swift */,
+				13F5805521FCB36600842D3E /* GemisteVisiteCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -129,11 +136,30 @@
 			path = storyBoards;
 			sourceTree = "<group>";
 		};
+		13F5805221F9CA6C00842D3E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CF309635217C85BC00153DCD /* DagInfoUpdateTVC.swift */,
+				CFE466DF2158FC2000179A69 /* LogBoekVC.swift */,
+				CF93AA2D21776AEB001E96C5 /* AdresVC.swift */,
+				CF479D12218DC9A100B0E188 /* SetupVC.swift */,
+				13F5805321FC798600842D3E /* GemisteVisitesVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		13F5805921FDDB8B00842D3E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				13F5805721FDDB6300842D3E /* Cellgegevens.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		CFE466BB2158F9A600179A69 = {
 			isa = PBXGroup;
 			children = (
 				13B0DF8A21F5D32600E56EF6 /* VBTableViewController.swift */,
-				CF479D12218DC9A100B0E188 /* SetupVC.swift */,
 				CFE466C62158F9A600179A69 /* volgMe */,
 				CFE466DC2158FA6400179A69 /* Frameworks */,
 			);
@@ -152,11 +178,10 @@
 			isa = PBXGroup;
 			children = (
 				CFE466C72158F9A600179A69 /* AppDelegate.swift */,
-				CFE466DF2158FC2000179A69 /* LogBoekVC.swift */,
-				CF93AA2D21776AEB001E96C5 /* AdresVC.swift */,
-				CF309635217C85BC00153DCD /* DagInfoUpdateTVC.swift */,
+				13F5805221F9CA6C00842D3E /* ViewControllers */,
 				CF65D6DC216F45DC00C8C8E1 /* UserNotifications.swift */,
 				CF594DD52160ECD700D04356 /* algemeneFuncties.swift */,
+				13F5805921FDDB8B00842D3E /* Classes */,
 				13D9E74421F470D800AEBF71 /* extensions */,
 				13D9E74521F4711300AEBF71 /* TableViewCells */,
 				13F5805121F9AFEF00842D3E /* storyBoards */,
@@ -261,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF66485A215967F6003B58A0 /* ContactsExtension.swift in Sources */,
+				13F5805821FDDB6300842D3E /* Cellgegevens.swift in Sources */,
 				CF66485C21596C13003B58A0 /* dateExtensions.swift in Sources */,
 				CF309636217C85BC00153DCD /* DagInfoUpdateTVC.swift in Sources */,
 				CF2F6774215A202F00D61DF7 /* CoreDataExtensions.swift in Sources */,
@@ -276,9 +302,11 @@
 				CF27D9AA21766AA500B35197 /* SearchTableViewCell.swift in Sources */,
 				CF93AA2E21776AEB001E96C5 /* AdresVC.swift in Sources */,
 				CF594DD62160ECD700D04356 /* algemeneFuncties.swift in Sources */,
+				13F5805621FCB36600842D3E /* GemisteVisiteCell.swift in Sources */,
 				CFE466E02158FC2000179A69 /* LogBoekVC.swift in Sources */,
 				13B0DF8B21F5D32600E56EF6 /* VBTableViewController.swift in Sources */,
 				CFE466D02158F9A600179A69 /* volgMe.xcdatamodeld in Sources */,
+				13F5805421FC798600842D3E /* GemisteVisitesVC.swift in Sources */,
 				CF65D6DD216F45DC00C8C8E1 /* UserNotifications.swift in Sources */,
 				CF479D13218DC9A100B0E188 /* SetupVC.swift in Sources */,
 				CF2F6772215970C100D61DF7 /* NotificationExtensions.swift in Sources */,
