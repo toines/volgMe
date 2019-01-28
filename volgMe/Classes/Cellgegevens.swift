@@ -18,6 +18,18 @@ class CellGevens {
         //        willSet {newTableEntries = Set<tabelentry>()}
         didSet {fillNewTableEntries()}
     }
+    func checkGemisteVisites() {
+        let gemisteVisites = fetchAlleGemisteVisites()
+        for vis in gemisteVisites {
+            print ("\(#function) arr: \(vis.arrivalDate.yyyy_MM_dd_HH_mm_ss) dep: \(vis.departureDate.yyyy_MM_dd_HH_mm_ss)")
+            if let x = fetchBezoek(datum: vis.arrival_1970) {
+                print ("\(#function) \(x.arrivalDate.yyyy_MM_dd_HH_mm_ss) - \(x.departureDate.yyyy_MM_dd_HH_mm_ss) Wordt verwijderd")
+                context.delete(vis)
+            }
+        }
+        delegate.saveContext()
+    }
+
     func fillNewTableEntries(){
         newTableEntries = Set<tabelentry>()
         for x in dagTabel {
@@ -50,7 +62,7 @@ class CellGevens {
     
     var zoekResultaten = [Date_70]()
     //    var kalender = [String]()
-    struct dictData{
+    struct dictData:Codable{
         var getoond = false
         var bijgewerkt = false
         var plaatsen = Set<String>()
@@ -133,7 +145,7 @@ class CellGevens {
         for bezoek in bezoeken{
             insert(bezoek)
         }
-        
+        checkGemisteVisites()
     }
     
 }

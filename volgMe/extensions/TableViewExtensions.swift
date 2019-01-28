@@ -39,8 +39,14 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
             let delta = x.1
             var indexTabel = [IndexPath]()
             for row in indexPath.row...indexPath.row + abs(delta) - 1 {indexTabel.append(IndexPath(row:row + 1,section:0))}
+//            let v = tableViewDatum.indexPathsForVisibleRows
+
             if delta > 0 {tableViewDatum.insertRows(at: indexTabel, with: .fade)
-  //              tableViewDatum.scrollToRow(at: indexTabel.last!, at: UITableView.ScrollPosition.bottom, animated: true)
+                if let v = tableViewDatum.indexPathsForVisibleRows {
+                if v.last!.row < indexTabel.last!.row {
+                tableViewDatum.scrollToRow(at: indexTabel.last!, at: UITableView.ScrollPosition.bottom, animated: true)
+                }
+                }
             }
              else {tableViewDatum.deleteRows(at: indexTabel, with: .fade)}
         }

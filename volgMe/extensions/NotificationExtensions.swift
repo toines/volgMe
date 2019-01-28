@@ -37,6 +37,13 @@ extension LogBoekVC{
             if deltas.1 == 0 {return}
             for x in 0...(deltas.1 - 1) {newIndexPaths.append(IndexPath(row:x,section:0))  }
             tableViewDatum.insertRows(at: newIndexPaths, with: .middle)
+            if let v = tableViewDatum.indexPathsForVisibleRows?.last?.row{
+            if (newIndexPaths.last?.row ?? 0 > v)
+            {
+                tableViewDatum.scrollToRow(at: newIndexPaths.last!, at: UITableView.ScrollPosition.bottom, animated: true)
+               // This indeed is an indexPath no longer visible
+                // Do something to this non-visible cell...
+                }}
         }
         ErrMsg ("#adressen:\(telAdressen()) #bezoeken:\(telBezoeken())",.debug, #function)
         print("--------- ", #function)

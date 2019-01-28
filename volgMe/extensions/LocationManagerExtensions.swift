@@ -41,6 +41,7 @@ extension LogBoekVC : CLLocationManagerDelegate{
     func didVisit(_ visit:Bezoek){
         
         delegate.saveContext()
+        if let x = tabelData {x.insert(visit)}
 
     }
 }
