@@ -35,6 +35,7 @@ extension LogBoekVC{
             let deltas = x.getDeltaTableEntries()
             var newIndexPaths = [IndexPath]()
             if deltas.1 == 0 {return}
+//            for x in 0...(deltas.1 - 1) {insertRow(IndexPath(row: x, section: 0))}
             for x in 0...(deltas.1 - 1) {newIndexPaths.append(IndexPath(row:x,section:0))  }
             tableViewDatum.insertRows(at: newIndexPaths, with: .middle)
             if let v = tableViewDatum.indexPathsForVisibleRows?.last?.row{
@@ -47,6 +48,17 @@ extension LogBoekVC{
         }
         ErrMsg ("#adressen:\(telAdressen()) #bezoeken:\(telBezoeken())",.debug, #function)
         print("--------- ", #function)
+        
+    }
+    // moet nog geimplementeerd worden. probleem is het aantal rows moet per row omhoog gezet worden. 
+    func insertRow(_ indexPath:IndexPath){
+        tableViewDatum.insertRows(at: [indexPath], with: .bottom)
+        if let v = tableViewDatum.indexPathsForVisibleRows?.last?.row{
+            if indexPath.row > v  {
+                tableViewDatum.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+            }
+            
+        }
         
     }
 

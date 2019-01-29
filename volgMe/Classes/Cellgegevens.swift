@@ -47,19 +47,6 @@ class CellGevens {
         oldTableEntries = newTableEntries.sorted(by: {($0.datumValue,Float($0.tijdstip ?? 0)) < ($1.datumValue, Float($1.tijdstip ?? 0))})
         return (Array(deltaEntries).sorted(by: {($0.datumValue,Float($0.tijdstip ?? 0)) < ($1.datumValue, Float($1.tijdstip ?? 0))}),delta)
     }
-    //    func getTableEntries()->[tabelentry]{
-    //        if tabelEntries.count == 0 {
-    //            for x in dagTabel.sorted(by: {$0.key<$1.key}) {
-    //                tabelEntries.append(tabelentry(x.key))
-    //                for y in x.value.sorted() {
-    //                    tabelEntries.append(tabelentry(String(x.key.prefix(8)),y))
-    //                }
-    //            }
-    //        }
-    //        return tabelEntries
-    //    }
-    
-    
     var zoekResultaten = [Date_70]()
     //    var kalender = [String]()
     struct dictData:Codable{
@@ -77,22 +64,13 @@ class CellGevens {
         
     }
     func handleVisitesVoor(dag:String) {
-        //        var x = datumDictionary[dag]     //oud
-        //        if let y = x?.getoond {x?.getoond = !y}     //oud
-        //        datumDictionary[dag] = x     //oud
-        
         if let x = dagTabel[dag] {
             if x.count > 0 {dagTabel[dag] = [Date_70]()} else {dagTabel[dag] = datumDictionary[dag]?.datums}
             
         }
     }
     
-    //     func vulCellData(){
-    //        cellData = (datumDictionary.filter{$0.value.getoond == true}).keys.sorted()
-    //    }
     func expandMaanden() {
-        //        let x = (datumDictionary.filter{$0.key.count == 6}).keys.sorted()  // oud
-        //        kalender = x   // oud
         
         let y = (datumDictionary.filter{$0.key.count == 6}).keys.sorted()
         for z in y {
@@ -100,8 +78,6 @@ class CellGevens {
         }
     }
     func expandDagenVoor(maand:String) {
-        //        kalender = (kalender + (datumDictionary.filter{$0.key.count == 8  && $0.key.prefix(6) == maand}).keys).sorted()  // oud
-        
         let y = (datumDictionary.filter{$0.key.count == 8  && $0.key.prefix(6) == maand}).keys
         for z in y {dagTabel[z] = [Date_70]()}
     }
