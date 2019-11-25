@@ -17,8 +17,11 @@ extension LogBoekVC : CLLocationManagerDelegate{
     {
         if lm == nil {
             lm = CLLocationManager()
-            lm!.requestAlwaysAuthorization()
-            lm!.allowsBackgroundLocationUpdates = true
+            let status = CLLocationManager.authorizationStatus()
+            if status == .notDetermined {
+                lm!.requestAlwaysAuthorization()
+                lm!.allowsBackgroundLocationUpdates = true
+            }
             lm!.delegate = self
             lm!.startMonitoringVisits()
             
@@ -33,7 +36,7 @@ extension LogBoekVC : CLLocationManagerDelegate{
         }
         let x = telBezoeken()
         stuurNotification(title: "\(x) didVisit:", body: " arr:\(visit.arrivalDate.DD_hh_mm()) dep:\(visit.departureDate.DD_hh_mm())", badge: 0)
- //       sendNotification()
+        //       sendNotification()
     }
     func  locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     }
@@ -41,8 +44,10 @@ extension LogBoekVC : CLLocationManagerDelegate{
     func didVisit(_ visit:Bezoek){
         
         delegate.saveContext()
-        if let x = tabelData {x.insert(visit)}
-
+        if let x = tabelData {x.insert(visit)
+            saveDatumDictionary(x.datumDictionary)
+        }
+        
     }
 }
 

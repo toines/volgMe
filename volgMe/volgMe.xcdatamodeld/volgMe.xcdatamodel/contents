@@ -29,6 +29,13 @@
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="SavedDatumDictionary" representedClassName="SavedDatumDictionary" syncable="YES" codeGenerationType="class">
+        <attribute name="bijgewerkt" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="datums" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="getoond" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plaatsen" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
     <entity name="Tabellen" representedClassName="Tabellen" syncable="YES" codeGenerationType="class">
         <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
@@ -38,5 +45,6 @@
         <element name="Bezoek" positionX="-275.8203125" positionY="-126.75" width="128" height="135"/>
         <element name="IncompleetBezoek" positionX="-72" positionY="27" width="128" height="105"/>
         <element name="Tabellen" positionX="247.671875" positionY="145.296875" width="128" height="75"/>
+        <element name="SavedDatumDictionary" positionX="-45" positionY="54" width="128" height="120"/>
     </elements>
 </model>

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		136A55B721F1ED2700CE4094 /* adressen.json in Resources */ = {isa = PBXBuildFile; fileRef = 136A55B621F1ED2700CE4094 /* adressen.json */; };
 		136A55B921F1ED5000CE4094 /* visits.json in Resources */ = {isa = PBXBuildFile; fileRef = 136A55B821F1ED5000CE4094 /* visits.json */; };
+		13A1175923893C05002AA9A9 /* KaartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A1175823893C05002AA9A9 /* KaartVC.swift */; };
+		13A1175B238A8F5D002AA9A9 /* debugExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A1175A238A8F5D002AA9A9 /* debugExtensions.swift */; };
+		13A1175D238AAE65002AA9A9 /* jaarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A1175C238AAE65002AA9A9 /* jaarTableViewCell.swift */; };
 		13B0DF8B21F5D32600E56EF6 /* VBTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B0DF8A21F5D32600E56EF6 /* VBTableViewController.swift */; };
 		13F5803021F7158000842D3E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5802F21F7158000842D3E /* UserDefaults.swift */; };
 		13F5805421FC798600842D3E /* GemisteVisitesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F5805321FC798600842D3E /* GemisteVisitesVC.swift */; };
@@ -47,6 +50,11 @@
 /* Begin PBXFileReference section */
 		136A55B621F1ED2700CE4094 /* adressen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = adressen.json; sourceTree = "<group>"; };
 		136A55B821F1ED5000CE4094 /* visits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visits.json; sourceTree = "<group>"; };
+		13A1175823893C05002AA9A9 /* KaartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaartVC.swift; sourceTree = "<group>"; };
+		13A1175A238A8F5D002AA9A9 /* debugExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debugExtensions.swift; sourceTree = "<group>"; };
+		13A1175C238AAE65002AA9A9 /* jaarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jaarTableViewCell.swift; sourceTree = "<group>"; };
+		13A1175E238AD483002AA9A9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		13A1175F238AD483002AA9A9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		13B0DF8A21F5D32600E56EF6 /* VBTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBTableViewController.swift; sourceTree = "<group>"; };
 		13F5802F21F7158000842D3E /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		13F5805321FC798600842D3E /* GemisteVisitesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemisteVisitesVC.swift; sourceTree = "<group>"; };
@@ -108,6 +116,7 @@
 				CF663AF72168F18F00694C97 /* SearchExtensions.swift */,
 				CFE467042158FD1900179A69 /* TableViewExtensions.swift */,
 				13F5802F21F7158000842D3E /* UserDefaults.swift */,
+				13A1175A238A8F5D002AA9A9 /* debugExtensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -122,6 +131,7 @@
 				CF27D9A921766AA500B35197 /* SearchTableViewCell.swift */,
 				CF93AA2B21773F56001E96C5 /* searchHeaderViewCell.swift */,
 				CF811296216E2D7300DB10EE /* maandTableViewCell.swift */,
+				13A1175C238AAE65002AA9A9 /* jaarTableViewCell.swift */,
 				CF811298216E2D8B00DB10EE /* dagTableViewCell.swift */,
 				13F5805521FCB36600842D3E /* GemisteVisiteCell.swift */,
 			);
@@ -144,6 +154,7 @@
 				CF93AA2D21776AEB001E96C5 /* AdresVC.swift */,
 				CF479D12218DC9A100B0E188 /* SetupVC.swift */,
 				13F5805321FC798600842D3E /* GemisteVisitesVC.swift */,
+				13A1175823893C05002AA9A9 /* KaartVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -236,6 +247,7 @@
 				TargetAttributes = {
 					CFE466C32158F9A600179A69 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -254,6 +266,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = CFE466BB2158F9A600179A69;
 			productRefGroup = CFE466C52158F9A600179A69 /* Products */;
@@ -294,14 +307,17 @@
 				CF663AF82168F18F00694C97 /* SearchExtensions.swift in Sources */,
 				CF811299216E2D8B00DB10EE /* dagTableViewCell.swift in Sources */,
 				CF65D702216FCFB300C8C8E1 /* dagUitgebreidTableViewCell.swift in Sources */,
+				13A1175B238A8F5D002AA9A9 /* debugExtensions.swift in Sources */,
 				CF743A832179EB9D00479982 /* AdresHeaderCell.swift in Sources */,
 				CFE466C82158F9A600179A69 /* AppDelegate.swift in Sources */,
 				CF66485821596390003B58A0 /* LocationManagerExtensions.swift in Sources */,
 				CF81129B216E2DA900DB10EE /* visiteTableViewCell.swift in Sources */,
 				CF743A812179D88D00479982 /* adresBezoekTableViewCell.swift in Sources */,
+				13A1175923893C05002AA9A9 /* KaartVC.swift in Sources */,
 				CF27D9AA21766AA500B35197 /* SearchTableViewCell.swift in Sources */,
 				CF93AA2E21776AEB001E96C5 /* AdresVC.swift in Sources */,
 				CF594DD62160ECD700D04356 /* algemeneFuncties.swift in Sources */,
+				13A1175D238AAE65002AA9A9 /* jaarTableViewCell.swift in Sources */,
 				13F5805621FCB36600842D3E /* GemisteVisiteCell.swift in Sources */,
 				CFE466E02158FC2000179A69 /* LogBoekVC.swift in Sources */,
 				13B0DF8B21F5D32600E56EF6 /* VBTableViewController.swift in Sources */,
@@ -324,6 +340,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CFE466CC2158F9A600179A69 /* Base */,
+				13A1175E238AD483002AA9A9 /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -332,6 +349,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CFE466D42158F9A800179A69 /* Base */,
+				13A1175F238AD483002AA9A9 /* nl */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -343,6 +361,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -390,7 +409,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -404,6 +423,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -445,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -468,7 +488,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AM.Schnabel.volgMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -486,7 +506,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AM.Schnabel.volgMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

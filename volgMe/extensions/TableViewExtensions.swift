@@ -29,7 +29,9 @@ extension LogBoekVC: UITableViewDelegate,UITableViewDataSource  {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let x = tableViewDatum.cellForRow(at: indexPath)
-        if let cell = x as? maandTableViewCell {cell.geselecteerd()}
+        if let cell = x as? jaarTableViewCell
+        {cell.geselecteerd()}
+        else if let cell = x as? maandTableViewCell {cell.geselecteerd()}
         else if let cell = x as? dagTableViewCell {cell.geselecteerd()}
         else if let _ = x as? visiteTableViewCell{return}
         else if let _ = x as? SearchTableViewCell{return}

@@ -24,10 +24,10 @@ class SetupVC: UIViewController,MFMailComposeViewControllerDelegate {
             
             //           let jsonString = String(data: records, encoding: .utf8)
             let jsonBezoekData = try JSONEncoder().encode(records)
-            let jsonBezoekString = String(data: jsonBezoekData, encoding: .utf8)
+//            let jsonBezoekString = String(data: jsonBezoekData, encoding: .utf8)
             let adressen = try context.fetch(Adres.fetchRequest()) as [Adres]
             let jsonAdresData = try JSONEncoder().encode(adressen)
-            let jsonAdresString = String(data: jsonAdresData, encoding: .utf8)
+ //           let jsonAdresString = String(data: jsonAdresData, encoding: .utf8)
  //           print("bezoeken : \(jsonBezoekString ?? ""), adressen : \(jsonAdresString ?? "")")
             sendMail(attachmentVisites: [jsonBezoekData,jsonAdresData])
             //            print ("json   \(jsonData)")

@@ -25,8 +25,6 @@ class LogBoekVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableViewDatum.delegate = self
-//        tableViewDatum.dataSource = self
         initLocationManager()
         if geenAdressen(){
 //         StoreAllContactsAdresses()
@@ -72,7 +70,7 @@ class LogBoekVC: UIViewController {
                 if let x = sender as? visiteTableViewCell {
                 selectedDate = x.selectedDate}
             }
-            view.endEditing(true)
+ //           view.endEditing(true)  ??
             let controller = segue.destination as! AdresVC
             controller.navigationItem.leftItemsSupplementBackButton = true
             controller.datum = selectedDate

@@ -12,7 +12,7 @@ extension UserDefaults {
         guard let data = UserDefaults.standard.data(forKey: key)
             else { return nil }
         
-        guard let token = try? NSKeyedUnarchiver.unarchivedObject(ofClass: CKServerChangeToken.self, from: data)
+        guard let token = ((try? NSKeyedUnarchiver.unarchivedObject(ofClass: CKServerChangeToken.self, from: data)) as CKServerChangeToken??)
             else { return nil }
         
         return token

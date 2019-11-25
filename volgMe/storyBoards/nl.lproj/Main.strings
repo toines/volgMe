@@ -1,0 +1,162 @@
+
+/* Class = "UIBarButtonItem"; title = "◀︎Dagboek"; ObjectID = "3Dp-9S-boL"; */
+"3Dp-9S-boL.title" = "◀︎Dagboek";
+
+/* Class = "UIBarButtonItem"; title = "Kaart"; ObjectID = "3pS-rn-wak"; */
+"3pS-rn-wak.title" = "Kaart";
+
+/* Class = "UINavigationItem"; title = "Setup"; ObjectID = "4k7-mx-2V5"; */
+"4k7-mx-2V5.title" = "Setup";
+
+/* Class = "UIButton"; normalTitle = "Upload Data"; ObjectID = "7bX-i7-XVS"; */
+"7bX-i7-XVS.normalTitle" = "Upload Data";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "84k-le-dQt"; */
+"84k-le-dQt.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "DagInfo"; ObjectID = "8Xv-rb-BlY"; */
+"8Xv-rb-BlY.title" = "DagInfo";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Aes-NL-Af0"; */
+"Aes-NL-Af0.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "icon"; ObjectID = "F66-al-mDD"; */
+"F66-al-mDD.placeholder" = "icon";
+
+/* Class = "UITextField"; text = "🐭"; ObjectID = "F66-al-mDD"; */
+"F66-al-mDD.text" = "🐭";
+
+/* Class = "UITextField"; placeholder = "postcode"; ObjectID = "FUW-fa-SZw"; */
+"FUW-fa-SZw.placeholder" = "postcode";
+
+/* Class = "UITextField"; text = "5658AZ"; ObjectID = "FUW-fa-SZw"; */
+"FUW-fa-SZw.text" = "5658AZ";
+
+/* Class = "UILabel"; text = "🇳🇱"; ObjectID = "Gwl-st-tra"; */
+"Gwl-st-tra.text" = "🇳🇱";
+
+/* Class = "UITextField"; placeholder = "landcode"; ObjectID = "HPN-i1-US8"; */
+"HPN-i1-US8.placeholder" = "landcode";
+
+/* Class = "UITextField"; text = "NL"; ObjectID = "HPN-i1-US8"; */
+"HPN-i1-US8.text" = "NL";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "INT-lt-Ifa"; */
+"INT-lt-Ifa.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Provincie"; ObjectID = "JMU-mi-Xum"; */
+"JMU-mi-Xum.placeholder" = "Provincie";
+
+/* Class = "UITextField"; text = "Noord Brabant"; ObjectID = "JMU-mi-Xum"; */
+"JMU-mi-Xum.text" = "Noord Brabant";
+
+/* Class = "UILabel"; text = "NL"; ObjectID = "JfW-jl-nhH"; */
+"JfW-jl-nhH.text" = "NL";
+
+/* Class = "UILabel"; text = "0 resultaten gevonden"; ObjectID = "L7r-ed-ZZS"; */
+"L7r-ed-ZZS.text" = "0 resultaten gevonden";
+
+/* Class = "UILabel"; text = "2017"; ObjectID = "LYL-iW-iys"; */
+"LYL-iW-iys.text" = "2017";
+
+/* Class = "UIBarButtonItem"; title = "Update"; ObjectID = "Lvr-VJ-AkN"; */
+"Lvr-VJ-AkN.title" = "Update";
+
+/* Class = "UILabel"; text = "coordinaten uit adres"; ObjectID = "Ns0-gs-Gkt"; */
+"Ns0-gs-Gkt.text" = "coordinaten uit adres";
+
+/* Class = "UITextField"; placeholder = "straat nummer"; ObjectID = "QQz-yx-liC"; */
+"QQz-yx-liC.placeholder" = "straat nummer";
+
+/* Class = "UITextField"; text = "straat huisnummer"; ObjectID = "QQz-yx-liC"; */
+"QQz-yx-liC.text" = "straat huisnummer";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "RTC-za-6MO"; */
+"RTC-za-6MO.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "RgJ-wp-s9H"; */
+"RgJ-wp-s9H.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "SXc-SD-CUG"; */
+"SXc-SD-CUG.text" = "Label";
+
+/* Class = "UILabel"; text = "Coordinaten uit bezoek"; ObjectID = "TRC-iW-oE8"; */
+"TRC-iW-oE8.text" = "Coordinaten uit bezoek";
+
+/* Class = "UIBarButtonItem"; title = "Delete"; ObjectID = "U93-NU-OGw"; */
+"U93-NU-OGw.title" = "Delete";
+
+/* Class = "UILabel"; text = "Aankomst"; ObjectID = "XYS-hm-wFw"; */
+"XYS-hm-wFw.text" = "Aankomst";
+
+/* Class = "UILabel"; text = "lat: 123456789"; ObjectID = "Ya8-ec-3hX"; */
+"Ya8-ec-3hX.text" = "lat: 123456789";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ZS4-KA-phb"; */
+"ZS4-KA-phb.text" = "Label";
+
+/* Class = "UILabel"; text = "Bezocht"; ObjectID = "aZl-Vg-Dvk"; */
+"aZl-Vg-Dvk.text" = "Bezocht";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "b8A-NX-qX8"; */
+"b8A-NX-qX8.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "beq-1t-IGZ"; */
+"beq-1t-IGZ.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "naarKaart"; ObjectID = "dp2-OX-Jom"; */
+"dp2-OX-Jom.title" = "naarKaart";
+
+/* Class = "UINavigationItem"; title = "Adres"; ObjectID = "g8F-Kd-889"; */
+"g8F-Kd-889.title" = "Adres";
+
+/* Class = "UILabel"; text = "Augustus"; ObjectID = "gJC-p2-eAc"; */
+"gJC-p2-eAc.text" = "Augustus";
+
+/* Class = "UITableViewController"; title = "Gemiste Visites"; ObjectID = "mYB-56-ZHn"; */
+"mYB-56-ZHn.title" = "Gemiste Visites";
+
+/* Class = "UITextField"; placeholder = "SoortPlaats"; ObjectID = "mfT-EC-rkZ"; */
+"mfT-EC-rkZ.placeholder" = "SoortPlaats";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "nr3-9g-q9C"; */
+"nr3-9g-q9C.text" = "Label";
+
+/* Class = "UILabel"; text = "long:123456789"; ObjectID = "o4v-mt-DxY"; */
+"o4v-mt-DxY.text" = "long:123456789";
+
+/* Class = "UITextField"; placeholder = "naam"; ObjectID = "q6G-nq-2uS"; */
+"q6G-nq-2uS.placeholder" = "naam";
+
+/* Class = "UITextField"; text = "Toine Schnabel"; ObjectID = "q6G-nq-2uS"; */
+"q6G-nq-2uS.text" = "Toine Schnabel";
+
+/* Class = "UILabel"; text = "vertrek"; ObjectID = "rh9-EI-SjV"; */
+"rh9-EI-SjV.text" = "vertrek";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "rvB-1G-0gn"; */
+"rvB-1G-0gn.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Setup"; ObjectID = "v8J-GP-voy"; */
+"v8J-GP-voy.title" = "Setup";
+
+/* Class = "UIBarButtonItem"; title = "Bottom"; ObjectID = "wcV-HY-aCT"; */
+"wcV-HY-aCT.title" = "Bottom";
+
+/* Class = "UINavigationItem"; title = "Logboek"; ObjectID = "wlr-oK-UnO"; */
+"wlr-oK-UnO.title" = "Logboek";
+
+/* Class = "UITextField"; placeholder = "Plaats"; ObjectID = "wmq-Zn-KJQ"; */
+"wmq-Zn-KJQ.placeholder" = "Plaats";
+
+/* Class = "UITextField"; text = "Eindhoven"; ObjectID = "wmq-Zn-KJQ"; */
+"wmq-Zn-KJQ.text" = "Eindhoven";
+
+/* Class = "UIBarButtonItem"; title = "gemiste Visites"; ObjectID = "yLZ-JN-5qY"; */
+"yLZ-JN-5qY.title" = "gemiste Visites";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "yTD-Vr-2S0"; */
+"yTD-Vr-2S0.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "🖌"; ObjectID = "zw8-yI-ZhW"; */
+"zw8-yI-ZhW.normalTitle" = "🖌";

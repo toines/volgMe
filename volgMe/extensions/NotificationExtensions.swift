@@ -23,6 +23,8 @@ extension LogBoekVC{
             tabelData = CellGevens()
         }
         tabelData?.expandMaanden()
+        if (tabelData?.dagTabel.count ?? 0) > 25
+        {tabelData?.expandJaren()}
         
         
         

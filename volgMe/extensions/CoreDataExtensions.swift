@@ -345,6 +345,7 @@ func checkBezoekenZonderAdres(){
 //            visiteZonderAdres.metAdres = closestAdres
             closestAdres.addToBezocht(visiteZonderAdres)
             delegate.saveContext()
+            stuurNotification(title:"old",body:"..\(closestAdres.stad ?? ""),\(closestAdres.straatHuisnummer ?? "")", badge: 0)
             tabelData?.insert(visiteZonderAdres)
             NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
             ErrMsg("\(telBezoekenZonderAdres())",.debug,#function)
@@ -377,6 +378,8 @@ func checkBezoekenZonderAdres(){
                 visiteZonderAdres.metAdres = adres
                 delegate.saveContext()
                 tabelData?.insert(visiteZonderAdres) //
+                stuurNotification(title:"-Nw",body:"\(adres.stad ?? ""),\(adres.straatHuisnummer ?? "")", badge: 0)
+
                 NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil) //
                 sleep(UInt32(0.8))
                 NotificationCenter.default.post(name: NSNotification.Name("checkBezoekenZonderAdres"), object: nil)
